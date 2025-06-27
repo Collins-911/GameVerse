@@ -1,0 +1,206 @@
+.gtav-page {
+  padding: 2rem;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+.gtav-header {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.gtav-back-btn {
+  background-color: #00ff6a;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  padding: 14px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gtav-back-btn:hover {
+  background-color: #00cc55;
+}
+
+.gtav-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 5rem;
+  align-items: center;
+}
+
+.gtav-img-container {
+  flex: 1.2;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.gtav-img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 255, 106, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gtav-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 255, 106, 0.3);
+}
+
+.gtav-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.gtav-info h1 {
+  font-size: 2.5rem;
+  color: #00ff6a;
+}
+
+.genre,
+.release,
+.desc {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.gtav-play-btn {
+  margin: 10px 10px 10px 0;
+  padding: 10px 20px;
+  background-color: #00ff6a;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gtav-play-btn:hover {
+  background-color: #00cc55;
+}
+
+.trailer {
+  background-color: #007aff;
+  color: white;
+}
+
+.trailer:hover {
+  background-color: #005fcc;
+}
+
+.gtav-rating {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.gtav-stars {
+  color: gold;
+  font-size: 1.2rem;
+}
+
+.gtav-extra-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.gtav-features,
+.gtav-platforms {
+  flex: 1;
+  min-width: 280px;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+}
+
+.gtav-features h2,
+.gtav-platforms h2 {
+  color: #00ff6a;
+  margin-bottom: 1rem;
+}
+
+.gtav-features ul,
+.gtav-platforms p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.gtav-system-req {
+  margin-top: 3rem;
+}
+
+.gtav-system-req h2 {
+  color: #00ff6a;
+  margin-bottom: 1.5rem;
+}
+
+.gtav-req-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.gtav-min,
+.gtav-rec {
+  flex: 1;
+  min-width: 280px;
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.gtav-min h3,
+.gtav-rec h3 {
+  color: #00ff6a;
+  margin-bottom: 1rem;
+}
+
+.gtav-min ul,
+.gtav-rec ul {
+  line-height: 1.6;
+  color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .gtav-hero,
+  .gtav-extra-section,
+  .gtav-req-section {
+    flex-direction: column;
+  }
+
+  .gtav-img {
+    max-width: 100%;
+  }
+
+  .gtav-play-btn {
+    width: 100%;
+  }
+
+  .trailer {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .gtav-header {
+    top: 10px;
+    right: 10px;
+  }
+}
