@@ -3,9 +3,8 @@ import { FaArrowLeft, FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import { FaWindows, FaPlaystation, FaXbox } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
-export default function GtaV() {
+export default function Fortnite() {
   const navigate = useNavigate();
-  
 
   return (
     <div className="gtav-page">
@@ -18,27 +17,27 @@ export default function GtaV() {
       <div className="gtav-hero gtav-box">
         <div className="gtav-img-container">
           <img
-            src="https://i.pinimg.com/736x/81/85/25/818525eae1a735b5fccd011a946c3917.jpg"
-            alt="GTA V"
+            src="https://i.pinimg.com/736x/f4/e0/35/f4e035d56c43d6ec0a4993511e15440d.jpg"
+            alt="Fortnite"
             className="gtav-img"
           />
         </div>
         <div className="gtav-info">
-          <h1>Grand Theft Auto V</h1>
-          <p className="genre">Action-Adventure | Rockstar Games</p>
-          <p className="release">Release Date: September 17, 2013</p>
+          <h1>Fortnite</h1>
+          <p className="genre">Battle Royale | Epic Games</p>
+          <p className="release">Release Date: July 25, 2017</p>
           <p className="desc">
-            GTA V is an open-world action-adventure game that immerses players in the lives of three criminals as they commit heists and survive the underworld of Los Santos. Explore a massive world, engage in thrilling missions, or simply roam free in a vibrant city full of chaos, vehicles, weapons, and fun.
+            Fortnite is a battle royale game where up to 100 players fight to be the last one standing. Build structures, loot weapons, and explore ever-changing maps. Known for its colorful visuals, frequent events, and creative modes, Fortnite is more than just a shooter—it's a global gaming phenomenon.
           </p>
           <button
             className="gtav-play-btn"
-            onClick={() => window.open('https://www.rockstargames.com/V', '_blank')}
+            onClick={() => window.open('https://www.fortnite.com', '_blank')}
           >
             Visit Official Site
           </button>
           <button
             className="gtav-play-btn trailer"
-            onClick={() => window.open('https://www.youtube.com/watch?v=QkkoHAzjnUs', '_blank')}
+            onClick={() => window.open('https://www.youtube.com/watch?v=2gUtfBmw86Y', '_blank')}
           >
             Watch Trailer
           </button>
@@ -48,10 +47,9 @@ export default function GtaV() {
               <FaStar />
               <FaStar />
               <FaStar />
-              <FaStar />
               <FaStarHalfAlt />
+              <FaRegStar />
             </span>
-            
           </div>
         </div>
       </div>
@@ -60,19 +58,20 @@ export default function GtaV() {
         <div className="gtav-features gtav-box">
           <h2>Key Features</h2>
           <ul>
-            <li>Three-playable character storylines</li>
-            <li>Expansive open-world environment (Los Santos & Blaine County)</li>
-            <li>Wide variety of vehicles, weapons, and side missions</li>
-            <li>Highly detailed graphics and weather systems</li>
-            <li>Massive online multiplayer (GTA Online)</li>
+            <li>Fast-paced 100-player battle royale</li>
+            <li>Creative building mechanics</li>
+            <li>Frequent content updates & live events</li>
+            <li>Multiple game modes (Creative, Save the World, etc.)</li>
+            <li>Cross-platform multiplayer</li>
           </ul>
         </div>
 
         <div className="gtav-platforms gtav-box">
           <h2>Available On</h2>
-          <p><FaPlaystation /> PlayStation 3, 4, 5</p>
-          <p><FaXbox /> Xbox 360, One, Series X|S</p>
-          <p><FaWindows /> Microsoft Windows (PC)</p>
+          <p><FaPlaystation /> PlayStation 4, 5</p>
+          <p><FaXbox /> Xbox One, Series X|S</p>
+          <p><FaWindows /> Windows, macOS</p>
+          <p>Also available on Android, iOS (via cloud), and Nintendo Switch</p>
         </div>
       </div>
 
@@ -82,11 +81,11 @@ export default function GtaV() {
           <div className="gtav-min">
             <h3>Minimum</h3>
             <ul>
-              <li>OS: Windows 7 64-bit</li>
-              <li>Processor: Intel Core 2 Quad CPU Q6600</li>
+              <li>OS: Windows 7/8/10 64-bit</li>
+              <li>Processor: Core i3-3225 3.3 GHz</li>
               <li>Memory: 4 GB RAM</li>
-              <li>Graphics: NVIDIA 9800 GT 1GB / AMD HD 4870 1GB</li>
-              <li>Storage: 72 GB available space</li>
+              <li>Graphics: Intel HD 4000</li>
+              <li>Storage: 30 GB available space</li>
             </ul>
           </div>
 
@@ -94,10 +93,10 @@ export default function GtaV() {
             <h3>Average</h3>
             <ul>
               <li>OS: Windows 10 64-bit</li>
-              <li>Processor: Intel Core i5 3470 / AMD FX-8350</li>
+              <li>Processor: Core i5-7300U 3.5 GHz</li>
               <li>Memory: 8 GB RAM</li>
-              <li>Graphics: NVIDIA GTX 660 2GB / AMD HD7870 2GB</li>
-              <li>Storage: 72 GB available space</li>
+              <li>Graphics: NVIDIA GTX 960 / AMD R9 280</li>
+              <li>Storage: 30 GB available space</li>
             </ul>
           </div>
         </div>

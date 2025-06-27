@@ -15,7 +15,7 @@ export default function useNavigation() {
 
   return {
     explore_games,
-    back
+    back,
   };
 }
 

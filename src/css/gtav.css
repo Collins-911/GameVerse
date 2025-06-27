@@ -14,18 +14,24 @@
 }
 
 .gtav-back-btn {
-  background-color: #00ff6a;
-  color: #000;
+  width: 50px;
+  height: 50px;
+  background: white;
   border: none;
   border-radius: 50%;
-  padding: 14px;
-  font-size: 1.2rem;
+  color: #000;
   cursor: pointer;
-  transition: 0.3s;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
 }
 
 .gtav-back-btn:hover {
-  background-color: #00cc55;
+    background: transparent;
+  border: 1px solid white ;
+  color: white;
 }
 
 .gtav-hero {
@@ -50,14 +56,10 @@
   max-width: 700px;
   border-radius: 16px;
   object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0, 255, 106, 0.2);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.gtav-img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 30px rgba(0, 255, 106, 0.3);
-}
+
 
 .gtav-info {
   flex: 1;
@@ -66,7 +68,7 @@
 
 .gtav-info h1 {
   font-size: 2.5rem;
-  color: #00ff6a;
+  color: white;
 }
 
 .genre,
@@ -93,8 +95,8 @@
 }
 
 .trailer {
-  background-color: #007aff;
-  color: white;
+  background-color: #00ff6a;
+  color: black;
 }
 
 .trailer:hover {
@@ -104,15 +106,13 @@
 .gtav-rating {
   margin-top: 10px;
   font-size: 1rem;
-  color: #ddd;
   display: flex;
   align-items: center;
   gap: 5px;
-}
 
-.gtav-stars {
-  color: gold;
-  font-size: 1.2rem;
+  span{
+    color: gold;
+  }
 }
 
 .gtav-extra-section {
@@ -133,7 +133,7 @@
 
 .gtav-features h2,
 .gtav-platforms h2 {
-  color: #00ff6a;
+  color: white;
   margin-bottom: 1rem;
 }
 
@@ -148,7 +148,7 @@
 }
 
 .gtav-system-req h2 {
-  color: #00ff6a;
+  color: white;
   margin-bottom: 1.5rem;
 }
 
@@ -169,7 +169,7 @@
 
 .gtav-min h3,
 .gtav-rec h3 {
-  color: #00ff6a;
+  color: white;
   margin-bottom: 1rem;
 }
 
