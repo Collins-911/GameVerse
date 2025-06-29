@@ -4,6 +4,7 @@
   color: #e0e0e0;
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
+  position: relative;
 }
 
 .games-header {
@@ -11,6 +12,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  padding-right: 70px;
 }
 
 .games-header h1 {
@@ -20,6 +22,9 @@
 }
 
 .back-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
   width: 50px;
   height: 50px;
   background: white;
@@ -32,16 +37,14 @@
   align-items: center;
   justify-content: center;
   transition: background 0.3s;
+  z-index: 1000;
 }
 
 .back-btn:hover {
   background: transparent;
-  border: 1px solid white ;
+  border: 1px solid white;
   color: white;
-  
-
 }
-
 
 .search-bar {
   width: 100%;
@@ -104,4 +107,63 @@
   font-size: 1.2rem;
   text-shadow: 0 0 8px #00ff6a;
 }
- 
+
+@media (max-width: 768px) {
+  .games-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .games-header h1 {
+    font-size: 2rem;
+  }
+
+  .search-bar {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+
+  .game-card img {
+    height: 170px;
+  }
+
+  .game-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .game-card p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .games-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .back-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+    top: 15px;
+    right: 15px;
+  }
+
+  .search-bar {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .game-card img {
+    height: 150px;
+  }
+
+  .game-card h3 {
+    font-size: 1rem;
+  }
+
+  .game-card p {
+    font-size: 0.85rem;
+  }
+}

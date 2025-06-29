@@ -29,8 +29,8 @@
 }
 
 .gtav-back-btn:hover {
-    background: transparent;
-  border: 1px solid white ;
+  background: transparent;
+  border: 1px solid white;
   color: white;
 }
 
@@ -58,8 +58,6 @@
   object-fit: cover;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-
-
 
 .gtav-info {
   flex: 1;
@@ -109,10 +107,10 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
 
-  span{
-    color: gold;
-  }
+.gtav-rating span {
+  color: gold;
 }
 
 .gtav-extra-section {
@@ -180,7 +178,10 @@
 }
 
 @media (max-width: 768px) {
-  .gtav-hero,
+  .gtav-hero {
+    flex-direction: column-reverse;
+  }
+
   .gtav-extra-section,
   .gtav-req-section {
     flex-direction: column;
