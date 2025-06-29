@@ -66,7 +66,7 @@ export default function Games() {
   {
     name: 'FIFA 25',
     genre: 'Sports',
-    img: 'https://i.pinimg.com/736x/b0/2e/c3/b02ec3a7bfc4421d602eab2a0c37e71b.jpg',
+    img: 'https://i.pinimg.com/736x/03/12/a8/0312a82b5a31474dab63f2a99e40eff6.jpg',
     onClick: () => navigate('/fifa25')
   },
   {

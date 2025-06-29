@@ -17,7 +17,7 @@ export default function  FIFA25() {
       <div className="gtav-hero gtav-box">
         <div className="gtav-img-container">
           <img
-            src="https://i.pinimg.com/736x/b0/2e/c3/b02ec3a7bfc4421d602eab2a0c37e71b.jpg"
+            src="https://i.pinimg.com/736x/03/12/a8/0312a82b5a31474dab63f2a99e40eff6.jpg"
             alt="FIFA 25"
             className="gtav-img"
           />
