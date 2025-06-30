@@ -61,7 +61,8 @@ export default function Games() {
   {
     name: 'Cyberpunk 2077',
     genre: 'RPG',
-    img: 'https://i.pinimg.com/736x/bf/01/09/bf0109c447eed4535b5775416ff7580d.jpg'
+    img: 'https://i.pinimg.com/736x/bf/01/09/bf0109c447eed4535b5775416ff7580d.jpg',
+    onClick: () => navigate('/cyberpunk2077')
   },
   {
     name: 'FIFA 25',

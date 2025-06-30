@@ -17,7 +17,7 @@ export default function Cyberpunk2077() {
       <div className="gtav-hero gtav-box">
         <div className="gtav-img-container">
           <img
-            src="https://i.pinimg.com/736x/41/ba/c5/41bac54a9d7a8bfc2306a4054d6727a4.jpg"
+            src="https://i.pinimg.com/736x/bf/01/09/bf0109c447eed4535b5775416ff7580d.jpg"
             alt="Cyberpunk 2077"
             className="gtav-img"
           />

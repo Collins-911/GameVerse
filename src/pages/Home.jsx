@@ -3,30 +3,40 @@ import Navigation from '../components/Navigation.jsx';
 
 const trendingStreams = [
   {
-    title: 'Shadow Blitz Live',
-    desc: 'Sneaky missions and epic kills—DarkKnightX is live now!',
-    streamer: 'DarkKnightX',
-    viewers: '12.4K watching',
-    image: '',
-    action: () => window.open('https://twitch.tv/darkknightx', '_blank'),
+    title: 'Legends Never Die',
+    desc: 'Technoblade’s greatest moments – relive the legend.',
+    streamer: 'Technoblade',
+    viewers: '25.6K watching',
+    image: 'https://i.pinimg.com/736x/98/25/d7/9825d70769de54b892883b6bd74c54ef.jpg',
+    action: () => window.open('https://www.youtube.com/c/Technoblade', '_blank'),
   },
   {
-    title: 'Pixel Rally Grand Prix',
-    desc: 'RetroRacer is dominating the track. Tune in now!',
-    streamer: 'RetroRacer',
-    viewers: '7.8K watching',
-    image: 'https://i.pinimg.com/736x/9e/09/be/9e09be097ea021cdffa1092cd1aaf25d.jpg',
-    action: () => window.open('https://twitch.tv/retroracer', '_blank'),
+    title: 'Call of Duty: Elite Strike',
+    desc: 'Shroud is wiping squads with insane accuracy. Watch now!',
+    streamer: 'Shroud',
+    viewers: '19.3K watching',
+    image: 'https://i.pinimg.com/736x/d4/1d/4a/d41d4ad9a7005701a9ee3b4f83dc5817.jpg',
+    action: () => window.open('https://www.twitch.tv/shroud', '_blank'),
   },
   {
-    title: 'Brain Clash Puzzle Battle',
-    desc: 'MindMaster is solving insane puzzles in real-time!',
-    streamer: 'MindMaster',
-    viewers: '9.1K watching',
-    image: 'https://i.pinimg.com/736x/9e/09/be/9e09be097ea021cdffa1092cd1aaf25d.jpg',
-    action: () => window.open('https://twitch.tv/mindmaster', '_blank'),
+    title: 'F1 Esports Grand Prix',
+    desc: 'Lando Norris is tearing up the digital track in real-time!',
+    streamer: 'LandoNorris',
+    viewers: '13.9K watching',
+    image: 'https://i.pinimg.com/736x/85/7e/c1/857ec1da2ba24bc4c50608b110b3544b.jpg',
+    action: () => window.open('https://www.twitch.tv/landonorris', '_blank'),
+  },
+  {
+    title: 'Portal 2: Puzzle Mayhem',
+    desc: 'SmallAnt is speed-solving logic puzzles with style!',
+    streamer: 'SmallAnt',
+    viewers: '11.5K watching',
+    image: 'https://i.pinimg.com/736x/26/53/5a/26535afe0f0bcfef83abe14d3f54edd6.jpg',
+    action: () => window.open('https://www.twitch.tv/smallant', '_blank'),
   },
 ];
+
+
 
 const testimonials = [
   {
