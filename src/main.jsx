@@ -28,6 +28,8 @@ import StardewValley from './pages/StardewValley.jsx';
 import TheLegendOfZelda from './pages/TheLegendOfZelda.jsx';
 import TheSims4 from './pages/TheSims4.jsx';
 
+import SnakeGame from './pages/SnakeGame.jsx';
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
@@ -55,6 +57,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/stardewvalley" element={<StardewValley />} />
         <Route path="/thelegendofzelda" element={<TheLegendOfZelda />} />
         <Route path="/sims4" element={<TheSims4 />} />
+         <Route path="/snakegame" element={<SnakeGame />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

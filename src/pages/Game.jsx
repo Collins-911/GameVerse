@@ -129,7 +129,14 @@ export default function Games() {
     genre: 'Sports/Car',
     img: 'https://i.pinimg.com/736x/a5/91/f9/a591f986e9e7dd2e1c8004e642249edc.jpg',
     onClick: () => navigate('/rocketleague')
-  }
+  },
+   {
+  name: 'Snake Game',
+  genre: 'Arcade/Classic',
+  img: 'https://i.pinimg.com/736x/a5/91/f9/a591f986e9e7dd2e1c8004e642249edc.jpg',
+  onClick: () => navigate('/snakegame')
+}
+
 ];
 
 

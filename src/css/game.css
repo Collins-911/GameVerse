@@ -21,7 +21,7 @@
   color: white;
 }
 
-.back-btn {
+.snake-back-btn {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -40,7 +40,7 @@
   z-index: 1000;
 }
 
-.back-btn:hover {
+.snake-back-btn:hover {
   background: transparent;
   border: 1px solid white;
   color: white;
