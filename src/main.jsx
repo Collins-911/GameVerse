@@ -29,6 +29,8 @@ import TheLegendOfZelda from './pages/TheLegendOfZelda.jsx';
 import TheSims4 from './pages/TheSims4.jsx';
 
 import SnakeGame from './pages/SnakeGame.jsx';
+import Snake from './pages/gamesMade/Snake.jsx';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -58,6 +60,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/thelegendofzelda" element={<TheLegendOfZelda />} />
         <Route path="/sims4" element={<TheSims4 />} />
          <Route path="/snakegame" element={<SnakeGame />} />
+        <Route path="/playsnake" element={<Snake />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
