@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import '../../css/SnakeGame.css';
+import '../../pages/gamesMade/snakeGame.css'
 
 const GRID_SIZE = 20;
 const CELL_SIZE = 20;
