@@ -1,0 +1,134 @@
+.snake-page {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+  color: #f0f0f0;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.snake-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: white;
+ 
+}
+
+.snake-game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.snake-board {
+  position: relative;
+  display: grid;
+  width: 90vmin;
+  height: 90vmin;
+  background-color: #111;
+  border: 2px solid #00cc66;
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(0, 204, 102, 0.4);
+  overflow: hidden;
+}
+
+.snake-cell {
+  border: 1px solid #222;
+  background-color: #1a1a1a;
+  transition: background 0.1s;
+}
+
+.snake-cell.snake {
+ background-color: whitesmoke;
+}
+
+.snake-cell.food {
+ background-color: crimson;
+}
+
+
+.score {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: #1a1a1a;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  z-index: 2;
+  border: 1px solid #00cc66;
+}
+
+.gameover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  border: 1px solid #00cc66;
+  color: #fff;
+  padding: 16px 30px;
+  font-size: 1.8rem;
+  border-radius: 12px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.start-btn {
+  background: #00cc66;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.start-btn:hover {
+  background: #009955;
+  transform: scale(1.05);
+}
+
+.restart-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: transparent;
+  color: white;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 2;
+  border: 1px solid #00cc66;
+}
+
+.restart-btn:hover {
+  background: #009955;
+}
+
+@media screen and (max-width: 600px) {
+  .snake-board {
+    width: 95vmin;
+    height: 95vmin;
+  }
+
+  .score-display {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+
+  .game-over-message {
+    font-size: 1.4rem;
+  }
+}

@@ -7,28 +7,28 @@ import AnimationCursor from './components/AnimatedCursor.jsx'
 import Home from './pages/Home.jsx';
 import Game from './pages/Game.jsx';
 
-import GTAV from './pages/GTAV.jsx';
-import Fortnite from './pages/Fortnite.jsx';
-import Minecraft from './pages/Minecraft.jsx';
-import COD from './pages/COD.jsx';
-import Valorant from './pages/Valorant.jsx';
-import ApexLegends from './pages/ApexLegends.jsx';
-import LeagueofLegends from './pages/LeagueofLegends.jsx';
-import EldenRing from './pages/EldenRing.jsx';
-import AmongUs from './pages/AmongUs.jsx';
-import Cyberpunk2077 from './pages/CyberPunk.jsx';
-import FallGuys from './pages/FallGuys.jsx';
-import FIFA25 from './pages/FIFA25.jsx';
-import GOW from './pages/GOW.jsx';
-import HogwartsLegacy from './pages/HogwartsLegacy.jsx';
-import NBA2K24 from './pages/NBA2K24.jsx';
-import Overwatch2 from './pages/Overwatch2.jsx';
-import RocketLeague from './pages/RocketLeague.jsx';
-import StardewValley from './pages/StardewValley.jsx';
-import TheLegendOfZelda from './pages/TheLegendOfZelda.jsx';
-import TheSims4 from './pages/TheSims4.jsx';
+import GTAV from './pages/gamesPreveiw/GTAV.jsx';
+import Fortnite from './pages/gamesPreveiw/Fortnite.jsx';
+import Minecraft from './pages/gamesPreveiw/Minecraft.jsx';
+import COD from './pages/gamesPreveiw/COD.jsx';
+import Valorant from './pages/gamesPreveiw/Valorant.jsx';
+import ApexLegends from './pages/gamesPreveiw/ApexLegends.jsx';
+import LeagueofLegends from './pages/gamesPreveiw/LeagueofLegends.jsx';
+import EldenRing from './pages/gamesPreveiw/EldenRing.jsx';
+import AmongUs from './pages/gamesPreveiw/AmongUs.jsx';
+import Cyberpunk2077 from './pages/gamesPreveiw/CyberPunk.jsx';
+import FallGuys from './pages/gamesPreveiw/FallGuys.jsx';
+import FIFA25 from './pages/gamesPreveiw/FIFA25.jsx';
+import GOW from './pages/gamesPreveiw/GOW.jsx';
+import HogwartsLegacy from './pages/gamesPreveiw/HogwartsLegacy.jsx';
+import NBA2K24 from './pages/gamesPreveiw/NBA2K24.jsx';
+import Overwatch2 from './pages/gamesPreveiw/Overwatch2.jsx';
+import RocketLeague from './pages/gamesPreveiw/RocketLeague.jsx';
+import StardewValley from './pages/gamesPreveiw/StardewValley.jsx';
+import TheLegendOfZelda from './pages/gamesPreveiw/TheLegendOfZelda.jsx';
+import TheSims4 from './pages/gamesPreveiw/TheSims4.jsx';
+import SnakeGame from './pages/gamesPreveiw/SnakeGame.jsx';
 
-import SnakeGame from './pages/SnakeGame.jsx';
 import Snake from './pages/gamesMade/Snake.jsx';
 
 

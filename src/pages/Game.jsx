@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../css/game.css';
+import '../css/game.css'
 import { FaArrowLeft } from 'react-icons/fa';
 import Navigation from '../components/Navigation.jsx';
 
@@ -133,7 +133,7 @@ export default function Games() {
    {
   name: 'Snake Game',
   genre: 'Arcade/Classic',
-  img: 'https://i.pinimg.com/736x/a5/91/f9/a591f986e9e7dd2e1c8004e642249edc.jpg',
+  img: 'https://i.pinimg.com/736x/81/d7/d0/81d7d0d4ce05fddbc80ffa7b30a7fffe.jpg',
   onClick: () => navigate('/snakegame')
 }
 
