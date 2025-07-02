@@ -135,7 +135,20 @@ export default function Games() {
   genre: 'Arcade/Classic',
   img: 'https://i.pinimg.com/736x/81/d7/d0/81d7d0d4ce05fddbc80ffa7b30a7fffe.jpg',
   onClick: () => navigate('/snakegame')
+},
+    {
+    name: 'Tic-Tac-Toe',
+    genre: 'Arcade/Classic',
+    img: 'https://i.pinimg.com/736x/6d/a2/57/6da25737af716373634e4be86509ebb9.jpg',
+    onClick: () => navigate('/tictactoe')
+  },
+     {
+  name: 'Typing Game',
+  genre: 'Typing/Speed',
+  img: 'https://i.pinimg.com/736x/f6/6d/b8/f66db836e7397bff2c8b462b2e775b33.jpg',
+  onClick: () => navigate('/typinggame')
 }
+  
 
 ];
 

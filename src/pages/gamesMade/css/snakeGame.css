@@ -1,4 +1,146 @@
-.snake-game-wrapper{
-    background-color: #2a2a2a;
-    min-height: 100vh;
+.sg-page {
+  padding: 2rem;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+.sg-back-btn {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  color: #000;
+  cursor: pointer;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.sg-back-btn:hover {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.sg-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 5rem;
+  align-items: center;
+}
+
+.sg-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.sg-info h1 {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.sg-meta,
+.sg-desc {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.sg-play-btn {
+  margin: 10px 10px 10px 0;
+  padding: 10px 20px;
+  background-color: #00ff6a;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sg-play-btn:hover {
+  background-color: #00cc55;
+}
+
+.trailer {
+  background-color: #00ff6a;
+  color: black;
+}
+
+.trailer:hover {
+  background-color: #005fcc;
+}
+
+.sg-rating {
+  margin-top: 10px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sg-rating span {
+  color: gold;
+}
+
+.sg-extra-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.sg-features,
+.sg-platforms {
+  flex: 1;
+  min-width: 280px;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+}
+
+.sg-features h2,
+.sg-platforms h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.sg-features ul,
+.sg-platforms p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .sg-hero {
+    flex-direction: column;
+  }
+
+  .sg-extra-section {
+    flex-direction: column;
+  }
+
+  .sg-play-btn {
+    width: 100%;
+  }
+
+  .trailer {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .sg-back-btn {
+    top: 10px;
+    right: 10px;
+  }
 }

@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import '../gamesMade/css/snake.css';
+import { FaArrowLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const GRID_SIZE = 20;
 const INITIAL_SNAKE = [{ x: 5, y: 5 }];
@@ -17,6 +19,7 @@ function generateFood(snake) {
 }
 
 export default function Snake() {
+  const navigate = useNavigate();
   const [snake, setSnake] = useState(INITIAL_SNAKE);
   const [food, setFood] = useState(generateFood(INITIAL_SNAKE));
   const [direction, setDirection] = useState(INITIAL_DIRECTION);
@@ -99,6 +102,10 @@ export default function Snake() {
 
   return (
     <div className="snake-page">
+      <button className="gtav-back-btn" onClick={() => navigate('/game')}>
+        <FaArrowLeft />
+      </button>
+
       <h1 className="snake-title">Snake Game</h1>
 
       <div className="snake-game-wrapper">

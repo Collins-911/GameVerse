@@ -30,6 +30,8 @@ import TheSims4 from './pages/gamesPreveiw/TheSims4.jsx';
 import SnakeGame from './pages/gamesPreveiw/SnakeGame.jsx';
 
 import Snake from './pages/gamesMade/Snake.jsx';
+import TicTacToe from './pages/gamesMade/TicTacToe.jsx'
+import TypingGame from './pages/gamesMade/TypingGame.jsx';
 
 
 createRoot(document.getElementById('root')).render(
@@ -61,6 +63,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/sims4" element={<TheSims4 />} />
          <Route path="/snakegame" element={<SnakeGame />} />
         <Route path="/playsnake" element={<Snake />} />
+        <Route path="/tictactoe" element={<TicTacToe />} />
+        <Route path="/typinggame" element={<TypingGame />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

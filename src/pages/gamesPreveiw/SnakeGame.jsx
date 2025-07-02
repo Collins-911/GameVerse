@@ -1,54 +1,38 @@
-import '../../css/gtav.css';
-import { FaArrowLeft, FaStar, FaStarHalfAlt, FaRegStar, FaGamepad, FaChrome } from 'react-icons/fa';
+import '../gamesMade/css/snakeGame.css';
+import { FaArrowLeft, FaStar, FaRegStar, FaGamepad, FaChrome } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 export default function SnakeGame() {
   const navigate = useNavigate();
 
   return (
-    <div className="snake-page">
-      <div className="snake-header">
-        <button className="snake-back-btn" onClick={() => navigate('/game')}>
-          <FaArrowLeft />
-        </button>
-      </div>
+    <div className="sg-page">
+      <button className="sg-back-btn" onClick={() => navigate('/game')}>
+        <FaArrowLeft />
+      </button>
 
-      <div className="snake-hero snake-box">
-     
-        <div className="snake-info">
+      <div className="sg-hero">
+        <div className="sg-info">
           <h1>Snake Game</h1>
-          <p className="genre">Arcade | Classic Remake</p>
-          <p className="release">Released: June 2025</p>
-          <p className="desc">
-            Snake Game is a fast-paced remake of the legendary arcade classic. Control the snake, eat food, grow longer—but avoid crashing into yourself. Featuring smooth animations, responsive controls, and a retro-modern aesthetic, it's a must-play time killer!
+          <p className="sg-meta">Arcade | June 2025</p>
+          <p className="sg-desc">
+            A fast-paced remake of the classic. Eat, grow, and avoid hitting yourself. Clean animations, retro-modern style, and addictive gameplay!
           </p>
-          <button
-            className="snake-play-btn"
-            onClick={() => navigate('/playsnake')}
-          >
-            Play Snake Now
-          </button>
-          <button
-            className="snake-play-btn trailer"
-            onClick={() => window.open('https://www.youtube.com/watch?v=GeyDf4ooPdo', '_blank')}
-          >
-            Watch Gameplay
-          </button>
-          <div className="snake-rating">
+
+          <button className="sg-play-btn" onClick={() => navigate('/playsnake')}>Play Snake Now</button>
+          <button className="sg-play-btn trailer" onClick={() => window.open('https://www.youtube.com/watch?v=GeyDf4ooPdo', '_blank')}>Watch Gameplay</button>
+
+          <div className="sg-rating">
             <strong>Rating:</strong>
-            <span className="stars">
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaRegStar />
+            <span>
+              <FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar />
             </span>
           </div>
         </div>
       </div>
 
-      <div className="snake-extra-section">
-        <div className="snake-features snake-box">
+      <div className="sg-extra-section">
+        <div className="sg-features">
           <h2>Game Features</h2>
           <ul>
             <li>Classic arcade-style gameplay</li>
@@ -59,13 +43,12 @@ export default function SnakeGame() {
           </ul>
         </div>
 
-        <div className="snake-platforms snake-box">
+        <div className="sg-platforms">
           <h2>Available On</h2>
           <p><FaChrome /> Web Browser (Desktop & Mobile)</p>
           <p><FaGamepad /> HTML5 Game Engine</p>
         </div>
       </div>
-
     </div>
   );
 }

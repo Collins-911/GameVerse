@@ -1,0 +1,70 @@
+.ttt-container {
+  background-color:#0f0f0f;
+  padding: 50px 20px;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: hidden;
+}
+
+.ttt-title {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.ttt-status {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #00ff9c;
+}
+
+.ttt-board {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ttt-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.square {
+  width: 90px;
+  height: 90px;
+  font-size: 2.5rem;
+  background-color: #1f2937;
+  border: 2px solid #374151;
+  color: #ffffff;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.square:hover {
+  background-color: #374151;
+  transform: scale(1.05);
+}
+
+.ttt-reset {
+  margin-top: 30px;
+  padding: 12px;
+  width: 100%;
+  max-width: 300px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #00ff9c;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.ttt-reset:hover {
+  background-color: white;
+  color: #1f2937;
+}
