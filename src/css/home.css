@@ -50,6 +50,7 @@ html, body, .page-container {
   margin-bottom: 30px;
 }
 
+
 .cta-btn {
   padding: 12px 24px;
   background-color: #00ff6a;
@@ -171,7 +172,7 @@ html, body, .page-container {
 }
 
 .quote {
-  font-style: italic;
+
   color: #ccc;
   line-height: 1.6;
 }

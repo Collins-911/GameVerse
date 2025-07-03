@@ -103,7 +103,7 @@ export default function Home() {
           <p>Explore. Watch. Connect.</p>
         </div>
         <div className="footer-right">
-          <p>Contact: gameverse@support.com</p>
+          <p>emelumbacollins@gmail.com</p>
           <p>© {new Date().getFullYear()} GameVerse. All rights reserved.</p>
         </div>
       </footer>

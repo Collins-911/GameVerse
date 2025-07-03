@@ -28,10 +28,12 @@ import StardewValley from './pages/gamesPreveiw/StardewValley.jsx';
 import TheLegendOfZelda from './pages/gamesPreveiw/TheLegendOfZelda.jsx';
 import TheSims4 from './pages/gamesPreveiw/TheSims4.jsx';
 import SnakeGame from './pages/gamesPreveiw/SnakeGame.jsx';
+import TicTacToeGame from './pages/gamesPreveiw/TicTacToeGame.jsx';
+import Typing from './pages/gamesPreveiw/Typing.jsx';
 
 import Snake from './pages/gamesMade/Snake.jsx';
 import TicTacToe from './pages/gamesMade/TicTacToe.jsx'
-import TypingGame from './pages/gamesMade/TypingGame.jsx';
+import TypingGame from './pages/gamesMade/TypingGame.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -65,6 +67,9 @@ createRoot(document.getElementById('root')).render(
         <Route path="/playsnake" element={<Snake />} />
         <Route path="/tictactoe" element={<TicTacToe />} />
         <Route path="/typinggame" element={<TypingGame />} />
+        <Route path="/playtictactoe" element={<TicTacToeGame />} />
+        <Route path="/typing" element={<Typing />} />
+      
       </Routes>
     </BrowserRouter>
   </StrictMode>
