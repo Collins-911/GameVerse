@@ -15,6 +15,20 @@ export default function Login() {
     const dummyEmail = 'emelumbacollins@gmail.com';
     const dummyPassword = '123456';
 
+    // Incomplete form check
+    if (!emailInput || !passwordInput) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Incomplete Fields',
+        text: 'Please fill in both email and password.',
+        background: 'black',
+        color: '#fff',
+        width: '400px',
+      });
+      return;
+    }
+
+    // Check credentials
     if (emailInput === dummyEmail && passwordInput === dummyPassword) {
       Swal.fire({
         icon: 'success',
@@ -22,8 +36,9 @@ export default function Login() {
         text: 'Welcome back!',
         timer: 1500,
         showConfirmButton: false,
-        background: '#0b0b0b',
+        background: 'black',
         color: '#fff',
+        width: '400px',
       }).then(() => {
         navigate('/home');
       });
@@ -32,7 +47,8 @@ export default function Login() {
         icon: 'error',
         title: 'Login Failed',
         text: 'Invalid email or password',
-        background: '#0b0b0b',
+        background: 'black',
+        width: '400px',
         color: '#fff',
       });
     }
@@ -49,7 +65,6 @@ export default function Login() {
           id="email"
           name="email"
           placeholder="Enter your email"
-          required
           value={emailInput}
           onChange={(e) => setEmailInput(e.target.value)}
         />
@@ -60,7 +75,6 @@ export default function Login() {
           id="password"
           name="password"
           placeholder="Enter your password"
-          required
           value={passwordInput}
           onChange={(e) => setPasswordInput(e.target.value)}
         />
