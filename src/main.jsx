@@ -2,13 +2,14 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// import AnimationCursor from './components/AnimatedCursor.jsx'
-
+// Pages
 import Home from './pages/Home.jsx';
 import Game from './pages/Game.jsx';
-import Login from './pages/Login.jsx'
+import Login from './pages/Login.jsx';
+import Signup from './pages/SignUp.jsx';
+import Navbar from './components/Navbar.jsx'
 
-
+// Game Preview Pages
 import GTAV from './pages/gamesPreveiw/GTAV.jsx';
 import Fortnite from './pages/gamesPreveiw/Fortnite.jsx';
 import Minecraft from './pages/gamesPreveiw/Minecraft.jsx';
@@ -30,22 +31,32 @@ import StardewValley from './pages/gamesPreveiw/StardewValley.jsx';
 import TheLegendOfZelda from './pages/gamesPreveiw/TheLegendOfZelda.jsx';
 import TheSims4 from './pages/gamesPreveiw/TheSims4.jsx';
 import SnakeGame from './pages/gamesPreveiw/SnakeGame.jsx';
-import TicTacToeGame from './pages/gamesPreveiw/TicTacToeGame.jsx';
 import Typing from './pages/gamesPreveiw/Typing.jsx';
+import TicTacToeGame from './pages/gamesPreveiw/TicTacToeGame.jsx';
 
+// Games Made Pages
 import Snake from './pages/gamesMade/Snake.jsx';
-import TicTacToe from './pages/gamesMade/TicTacToe.jsx'
-import TypingGame from './pages/gamesMade/TypingGame.jsx'
+import TicTacToe from './pages/gamesMade/TicTacToe.jsx';
+import TypingGame from './pages/gamesMade/TypingGame.jsx';
 
-
+// Mount app
 createRoot(document.getElementById('root')).render(
+
+  
   <StrictMode>
     <BrowserRouter>
-      {/* <AnimationCursor /> */}
+        <Navbar/>
       <Routes>
+        {/* Auth Pages */}
         <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+        {/* Main Pages */}
         <Route path="/home" element={<Home />} />
         <Route path="/game" element={<Game />} />
+        
+
+        {/* Game Previews */}
         <Route path="/gtav" element={<GTAV />} />
         <Route path="/fortnite" element={<Fortnite />} />
         <Route path="/minecraft" element={<Minecraft />} />
@@ -66,13 +77,14 @@ createRoot(document.getElementById('root')).render(
         <Route path="/stardewvalley" element={<StardewValley />} />
         <Route path="/thelegendofzelda" element={<TheLegendOfZelda />} />
         <Route path="/sims4" element={<TheSims4 />} />
-         <Route path="/snakegame" element={<SnakeGame />} />
+        <Route path="/snakegame" element={<SnakeGame />} />
+        <Route path="/typing" element={<Typing />} />
+        <Route path="/playtictactoe" element={<TicTacToeGame />} />
+
+        {/* User Made Games */}
         <Route path="/playsnake" element={<Snake />} />
         <Route path="/tictactoe" element={<TicTacToe />} />
         <Route path="/typinggame" element={<TypingGame />} />
-        <Route path="/playtictactoe" element={<TicTacToeGame />} />
-        <Route path="/typing" element={<Typing />} />
-      
       </Routes>
     </BrowserRouter>
   </StrictMode>

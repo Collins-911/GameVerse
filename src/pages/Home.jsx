@@ -64,7 +64,7 @@ export default function Home() {
           <div className="hero-text">
             <h1>Welcome to GameVerse</h1>
             <p>Your ultimate hub for game streams, reviews, and rankings.</p>
-            <Link to="/game" className="login-btn">Explore games</Link>
+            <Link to="/game" className="cta-btn">Explore games</Link>
           </div>
         </section>
 
