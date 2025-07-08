@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/game.css'
 import { FaArrowLeft } from 'react-icons/fa';
-import Navigation from '../components/Navigation.jsx';
+
+
 
 export default function Games() {
   const [searchTerm, setSearchTerm] = useState('');
-  const navigate = useNavigate();
-  const { back } = Navigation();
+
 
  const gameList = [
   {
@@ -161,7 +161,7 @@ export default function Games() {
     <div className="games-page">
       <div className="games-header">
         <h1 className="games-title">Popular Games</h1>
-        <button className="back-btn" onClick={back}>
+        <button className="back-btn">
           <FaArrowLeft />
         </button>
       </div>

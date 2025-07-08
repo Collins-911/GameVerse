@@ -2,10 +2,12 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import AnimationCursor from './components/AnimatedCursor.jsx'
+// import AnimationCursor from './components/AnimatedCursor.jsx'
 
 import Home from './pages/Home.jsx';
 import Game from './pages/Game.jsx';
+import Login from './pages/Login.jsx'
+
 
 import GTAV from './pages/gamesPreveiw/GTAV.jsx';
 import Fortnite from './pages/gamesPreveiw/Fortnite.jsx';
@@ -39,9 +41,10 @@ import TypingGame from './pages/gamesMade/TypingGame.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <AnimationCursor />
+      {/* <AnimationCursor /> */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/game" element={<Game />} />
         <Route path="/gtav" element={<GTAV />} />
         <Route path="/fortnite" element={<Fortnite />} />

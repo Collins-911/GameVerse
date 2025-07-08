@@ -1,5 +1,6 @@
 import '../css/home.css';
-import Navigation from '../components/Navigation.jsx';
+import {Link} from 'react-router-dom'
+
 
 const trendingStreams = [
   {
@@ -54,7 +55,7 @@ const testimonials = [
 ];
 
 export default function Home() {
-  const {explore_games} = Navigation();
+
 
   return (
     <div className="page-container">
@@ -63,7 +64,7 @@ export default function Home() {
           <div className="hero-text">
             <h1>Welcome to GameVerse</h1>
             <p>Your ultimate hub for game streams, reviews, and rankings.</p>
-            <button className="cta-btn" onClick={explore_games}>Explore Games</button>
+            <Link to="/game" className="login-btn">Explore games</Link>
           </div>
         </section>
 

@@ -7,13 +7,13 @@
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
-  overflow-y: auto; /* optional, if content may overflow */
+  overflow-y: auto; 
 }
 
 .typing-title {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #00ffcc;
+  color: #00cc66;
 }
 
 .scroll-box {
