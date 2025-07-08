@@ -1,42 +1,55 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaHome, FaGamepad, FaMusic, FaSignOutAlt } from 'react-icons/fa';
-import '../../src/css/navbar.css';
+import { NavLink } from 'react-router-dom';
+import {
+  FaHome,
+  FaGamepad,
+  FaMusic,
+  FaBroadcastTower,
+  FaSignOutAlt,
+} from 'react-icons/fa';
+import '../css/navbar.css';
 
 export default function Navbar() {
-  const iconStyle = {
-    fontSize: '24px',
-    marginRight: '8px',
-    verticalAlign: 'middle',
-  };
-
   return (
     <nav className="navbar">
-      <div className="navbar-logo" style={{ color: '#00ff6a', fontSize: '28px', fontWeight: 'bold' }}>
-        GameVerse
+      <div className="navbar-container">
+        <div className="navbar-logo">
+          <span className="logo-full">GameVerse</span>
+          <span className="logo-short">GV</span>
+        </div>
+        <ul className="navbar-links">
+          <li>
+            <NavLink to="/home" className="nav-link" activeClassName="active-link">
+              <FaHome className="nav-icon" />
+              <span className="link-text">Home</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/game" className="nav-link" activeClassName="active-link">
+              <FaGamepad className="nav-icon" />
+              <span className="link-text">Games</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/music" className="nav-link" activeClassName="active-link">
+              <FaMusic className="nav-icon" />
+              <span className="link-text">Music</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/livestream" className="nav-link live" activeClassName="active-link">
+              <FaBroadcastTower className="nav-icon" />
+              <span className="link-text">Livestream</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/" className="nav-link logout" activeClassName="active-link">
+              <FaSignOutAlt className="nav-icon" />
+              <span className="link-text">Logout</span>
+            </NavLink>
+          </li>
+        </ul>
       </div>
-      <ul className="navbar-links">
-        <li>
-          <Link to="/home">
-            <FaHome style={iconStyle} />
-          </Link>
-        </li>
-        <li>
-          <Link to="/game">
-            <FaGamepad style={iconStyle} />
-          </Link>
-        </li>
-        <li>
-          <Link to="/music">
-            <FaMusic style={iconStyle} />
-          </Link>
-        </li>
-        <li>
-          <Link to="/" style={{ color: 'red' }}>
-            <FaSignOutAlt style={iconStyle} />
-          </Link>
-        </li>
-      </ul> 
     </nav>
   );
 }

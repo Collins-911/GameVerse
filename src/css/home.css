@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -6,26 +6,33 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   list-style: none;
-
 }
 
 html, body, .page-container {
   height: 100%;
+  background-color: #0b0b0b;
 }
 
+/* Navbar container */
+.nav-container {
+  width: 100%;
+  background-color: #0f0f0f;
+  padding: 20px 10%;
+  z-index: 10;
+}
+
+/* Page content */
 .page-container {
   display: flex;
   flex-direction: column;
-  margin-top: 70px;
 }
 
 .home {
-  background-color: #0b0b0b;
-  color: #e0e0e0;
-  padding-bottom: 60px;
   flex: 1;
+  padding-bottom: 60px;
 }
 
+/* HERO SECTION */
 .hero {
   display: flex;
   justify-content: space-between;
@@ -33,6 +40,7 @@ html, body, .page-container {
   padding: 60px 10%;
   background: linear-gradient(to right, #0f1f0f, #102610);
   flex-wrap: wrap;
+  
 }
 
 .hero-text {
@@ -48,9 +56,9 @@ html, body, .page-container {
 .hero-text p {
   font-size: 1.2rem;
   line-height: 1.6;
+  color: #e0e0e0;
   margin-bottom: 30px;
 }
-
 
 .cta-btn {
   padding: 12px 24px;
@@ -59,9 +67,10 @@ html, body, .page-container {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
   transition: transform 0.3s ease, background-color 0.3s ease;
+  display: inline-block;
 }
 
 .cta-btn:hover {
@@ -69,17 +78,7 @@ html, body, .page-container {
   transform: scale(1.05);
 }
 
-.hero-image {
-  max-width: 400px;
-  width: 100%;
-}
-
-.hero-img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 255, 106, 0.2);
-}
-
+/* TRENDING SECTION */
 .trending {
   text-align: center;
   margin-top: 60px;
@@ -102,9 +101,9 @@ html, body, .page-container {
   background-color: #161616;
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s ease, background-color 0.3s ease;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .game-card:hover {
@@ -130,17 +129,18 @@ html, body, .page-container {
 }
 
 .game-info p {
-  color: white;
+  color: #e0e0e0;
   font-size: 0.95rem;
   margin-bottom: 10px;
 }
 
-.game-info .streamer {
+.streamer {
   font-size: 0.85rem;
-  color:  white ;
+  color: #9affc6;
   margin-bottom: 15px;
 }
 
+/* TESTIMONIAL SECTION */
 .testimonials {
   text-align: center;
   margin-top: 80px;
@@ -174,7 +174,6 @@ html, body, .page-container {
 }
 
 .quote {
-
   color: #ccc;
   line-height: 1.6;
 }
@@ -185,6 +184,7 @@ html, body, .page-container {
   color: #00ff6a;
 }
 
+/* FOOTER SECTION */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -211,6 +211,7 @@ html, body, .page-container {
   font-size: 0.9rem;
 }
 
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
@@ -226,7 +227,8 @@ html, body, .page-container {
     font-size: 1rem;
   }
 
-  .trending-grid {
+  .trending-grid,
+  .testimonial-grid {
     grid-template-columns: 1fr;
   }
 

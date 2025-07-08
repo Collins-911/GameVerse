@@ -1,6 +1,6 @@
 import '../css/home.css';
-import {Link} from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const trendingStreams = [
   {
@@ -37,8 +37,6 @@ const trendingStreams = [
   },
 ];
 
-
-
 const testimonials = [
   {
     quote: "GameVerse changed the way I discover and watch games. It's awesome!",
@@ -55,59 +53,63 @@ const testimonials = [
 ];
 
 export default function Home() {
-
-
   return (
-    <div className="page-container">
-      <div className="home">
-        <section className="hero">
-          <div className="hero-text">
-            <h1>Welcome to GameVerse</h1>
-            <p>Your ultimate hub for game streams, reviews, and rankings.</p>
-            <Link to="/game" className="cta-btn">Explore games</Link>
-          </div>
-        </section>
-
-        <section className="trending">
-          <h2>Live Now</h2>
-          <div className="trending-grid">
-            {trendingStreams.map((stream, index) => (
-              <div className="game-card" key={index}>
-                <img src={stream.image} alt={stream.title} className="game-image" />
-                <div className="game-info">
-                  <h3>{stream.title}</h3>
-                  <p>{stream.desc}</p>
-                  <p className="streamer">🎥 {stream.streamer} – {stream.viewers}</p>
-                  <button className="cta-btn" onClick={stream.action}>Watch Now</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="testimonials">
-          <h2>What Viewers Say</h2>
-          <div className="testimonial-grid">
-            {testimonials.map((item, index) => (
-              <div className="testimonial-card" key={index}>
-                <p className="quote">"{item.quote}"</p>
-                <p className="author">- {item.author}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+    <>
+      <div className="nav-container">
+        <Navbar />
       </div>
 
-      <footer className="footer">
-        <div className="footer-left">
-          <h3>GameVerse</h3>
-          <p>Explore. Watch. Connect.</p>
+      <div className="page-container">
+        <div className="home">
+          <section className="hero">
+            <div className="hero-text">
+              <h1>Welcome to GameVerse</h1>
+              <p>Your ultimate hub for game streams, reviews, and rankings.</p>
+              <Link to="/game" className="cta-btn">Explore games</Link>
+            </div>
+          </section>
+
+          <section className="trending">
+            <h2>Live Now</h2>
+            <div className="trending-grid">
+              {trendingStreams.map((stream, index) => (
+                <div className="game-card" key={index}>
+                  <img src={stream.image} alt={stream.title} className="game-image" />
+                  <div className="game-info">
+                    <h3>{stream.title}</h3>
+                    <p>{stream.desc}</p>
+                    <p className="streamer">🎥 {stream.streamer} – {stream.viewers}</p>
+                    <button className="cta-btn" onClick={stream.action}>Watch Now</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="testimonials">
+            <h2>What Viewers Say</h2>
+            <div className="testimonial-grid">
+              {testimonials.map((item, index) => (
+                <div className="testimonial-card" key={index}>
+                  <p className="quote">"{item.quote}"</p>
+                  <p className="author">- {item.author}</p>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
-        <div className="footer-right">
-          <p>emelumbacollins@gmail.com</p>
-          <p>© {new Date().getFullYear()} GameVerse. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
+
+        <footer className="footer">
+          <div className="footer-left">
+            <h3>GameVerse</h3>
+            <p>Explore. Watch. Connect.</p>
+          </div>
+          <div className="footer-right">
+            <p>emelumbacollins@gmail.com</p>
+            <p>© {new Date().getFullYear()} GameVerse. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 }

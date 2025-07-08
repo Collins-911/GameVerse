@@ -7,7 +7,7 @@ import Home from './pages/Home.jsx';
 import Game from './pages/Game.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/SignUp.jsx';
-import Navbar from './components/Navbar.jsx'
+
 
 // Game Preview Pages
 import GTAV from './pages/gamesPreveiw/GTAV.jsx';
@@ -45,7 +45,7 @@ createRoot(document.getElementById('root')).render(
   
   <StrictMode>
     <BrowserRouter>
-        <Navbar/>
+       
       <Routes>
         {/* Auth Pages */}
         <Route path="/" element={<Login />} />
