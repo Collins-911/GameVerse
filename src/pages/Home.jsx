@@ -1,6 +1,10 @@
+import React from 'react';
 import '../css/home.css';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const trendingStreams = [
   {
@@ -50,9 +54,41 @@ const testimonials = [
     quote: "Feels like Twitch and Steam had a baby. I'm hooked!",
     author: 'Jay, Streamer',
   },
+  {
+    quote: "The UI is super clean and easy to use. I switched from Twitch for good.",
+    author: 'Leo, Indie Developer',
+  },
+  {
+    quote: "I never miss my favorite streams anymore. GameVerse keeps me updated!",
+    author: 'Nina, Esports Fan',
+  },
+  {
+    quote: "Streaming and discovering games in one place? Genius.",
+    author: 'Chris, Game Reviewer',
+  },
+  {
+    quote: "I found hidden gems I would've missed. GameVerse is a treasure chest.",
+    author: 'Sam, Late-Night Gamer',
+  },
+  {
+    quote: "From F1 races to puzzle streams, it covers everything I love.",
+    author: 'Dani, Variety Viewer',
+  },
 ];
 
+
 export default function Home() {
+  const testimonialSettings = {
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+  };
+
   return (
     <>
       <div className="nav-container">
@@ -61,6 +97,7 @@ export default function Home() {
 
       <div className="page-container">
         <div className="home">
+      
           <section className="hero">
             <div className="hero-text">
               <h1>Welcome to GameVerse</h1>
@@ -69,6 +106,7 @@ export default function Home() {
             </div>
           </section>
 
+    
           <section className="trending">
             <h2>Live Now</h2>
             <div className="trending-grid">
@@ -86,16 +124,17 @@ export default function Home() {
             </div>
           </section>
 
+       
           <section className="testimonials">
             <h2>What Viewers Say</h2>
-            <div className="testimonial-grid">
+            <Slider {...testimonialSettings}>
               {testimonials.map((item, index) => (
                 <div className="testimonial-card" key={index}>
                   <p className="quote">"{item.quote}"</p>
                   <p className="author">- {item.author}</p>
                 </div>
               ))}
-            </div>
+            </Slider>
           </section>
         </div>
 

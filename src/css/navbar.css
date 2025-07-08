@@ -27,7 +27,7 @@
 .navbar-logo {
   font-size: 24px;
   font-weight: 600;
-  color: #00ff6a;
+  color: white;
 }
 
 .logo-full {
@@ -56,7 +56,7 @@
 
 .nav-link:hover {
   background-color: #1a1a1a;
-  color: #00ff6a;
+  
 }
 
 .nav-icon {

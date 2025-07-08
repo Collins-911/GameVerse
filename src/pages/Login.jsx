@@ -15,20 +15,19 @@ export default function Login() {
     const dummyEmail = 'emelumbacollins@gmail.com';
     const dummyPassword = '123456';
 
-    // Incomplete form check
+    
     if (!emailInput || !passwordInput) {
       Swal.fire({
         icon: 'warning',
         title: 'Incomplete Fields',
         text: 'Please fill in both email and password.',
         background: 'black',
-        color: '#fff',
-        width: '400px',
+        color: 'white',
+        width: '350px',
       });
       return;
     }
 
-    // Check credentials
     if (emailInput === dummyEmail && passwordInput === dummyPassword) {
       Swal.fire({
         icon: 'success',
@@ -37,8 +36,8 @@ export default function Login() {
         timer: 1500,
         showConfirmButton: false,
         background: 'black',
-        color: '#fff',
-        width: '400px',
+        color: '#00ff6a',
+        width: '350px',
       }).then(() => {
         navigate('/home');
       });
@@ -48,8 +47,8 @@ export default function Login() {
         title: 'Login Failed',
         text: 'Invalid email or password',
         background: 'black',
-        width: '400px',
-        color: '#fff',
+        width: '350px',
+        color: 'white',
       });
     }
   };
