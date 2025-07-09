@@ -44,7 +44,7 @@ export default function Navbar() {
           </li>
           <li>
             <a 
-              href="https://wizstreamer.netlify.app/" 
+              href="https://wizstreamer.netlify.app/dashboard" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="nav-link live"
