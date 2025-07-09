@@ -79,16 +79,16 @@ const testimonials = [
 
 export default function Home() {
   const testimonialSettings = {
+  dots: true,             // Shows navigation dots
+  infinite: true,         // Enables infinite looping
+  speed: 600,             // Transition speed in ms
+  slidesToShow: 1,        // Show one slide at a time
+  slidesToScroll: 1,      // Scroll one slide at a time
+  autoplay: true,         // Enable autoplay
+  autoplaySpeed: 2000,    // Delay between slides in autoplay
+  arrows: false,          // Hide navigation arrows
+  fade: true,
 
-  dots: true,
-  infinite: true,
-  speed: 600,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 5000,
-  arrows: false,
-  fade: true  // 👈 Enables the fade (disappear/appear) effect
 }
 
 
@@ -103,7 +103,7 @@ export default function Home() {
       
           <section className="hero">
             <div className="hero-text">
-              <h1>Frostlzer is a good friend..me PS38 like him. (:</h1>
+              <h1>GameVerse</h1>
               <p>Your ultimate hub for game streams, reviews, and rankings.</p>
               <Link to="/game" className="cta-btn">Explore games</Link>
             </div>
