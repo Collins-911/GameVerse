@@ -3,6 +3,7 @@ import { FaArrowLeft, FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import { FaWindows, FaPlaystation, FaXbox } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
+
 export default function GtaV() {
   const navigate = useNavigate();
   
@@ -14,6 +15,8 @@ export default function GtaV() {
           <FaArrowLeft />
         </button>
       </div>
+
+     
 
       <div className="gtav-hero gtav-box">
         <div className="gtav-img-container">

@@ -79,15 +79,18 @@ const testimonials = [
 
 export default function Home() {
   const testimonialSettings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
-  };
+
+  dots: true,
+  infinite: true,
+  speed: 600,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 5000,
+  arrows: false,
+  fade: true  // 👈 Enables the fade (disappear/appear) effect
+}
+
 
   return (
     <>
@@ -100,7 +103,7 @@ export default function Home() {
       
           <section className="hero">
             <div className="hero-text">
-              <h1>Welcome to GameVerse</h1>
+              <h1>Frostlzer is a good friend..me PS38 like him. (:</h1>
               <p>Your ultimate hub for game streams, reviews, and rankings.</p>
               <Link to="/game" className="cta-btn">Explore games</Link>
             </div>

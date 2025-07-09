@@ -19,7 +19,7 @@ export default function Navbar() {
             <span className="logo-white">Verse</span>
           </span>
           <span className="logo-short">
-            <span className="logo-green">G</span>
+            <span className="logo-green">Emma</span>
             <span className="logo-white">V</span>
           </span>
         </div>

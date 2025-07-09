@@ -164,6 +164,7 @@
   text-align: left;
  height: 160px;
   transition: transform 0.3s ease;
+  border-radius: 8px;
 }
 
 .slick-dots li button:before {
