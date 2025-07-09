@@ -43,10 +43,15 @@ export default function Navbar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/livestream" className="nav-link live" activeClassName="active-link">
+            <a 
+              href="https://wizstreamer.netlify.app/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="nav-link live"
+            >
               <FaBroadcastTower className="nav-icon" />
               <span className="link-text">Livestream</span>
-            </NavLink>
+            </a>
           </li>
           <li>
             <NavLink to="/" className="nav-link logout" activeClassName="active-link">
