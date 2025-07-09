@@ -14,8 +14,14 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <span className="logo-full">GameVerse</span>
-          <span className="logo-short">GV</span>
+          <span className="logo-full">
+            <span className="logo-green">Game</span>
+            <span className="logo-white">Verse</span>
+          </span>
+          <span className="logo-short">
+            <span className="logo-green">G</span>
+            <span className="logo-white">V</span>
+          </span>
         </div>
         <ul className="navbar-links">
           <li>

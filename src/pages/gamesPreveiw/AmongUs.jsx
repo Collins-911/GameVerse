@@ -1,10 +1,10 @@
 import '../../css/gtav.css';
 import { FaArrowLeft, FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import { FaWindows, FaPlaystation, FaXbox, FaMobileAlt } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+
 
 export default function AmongUs() {
-  const navigate = useNavigate();
+
 
   return (
     <div className="gtav-page">

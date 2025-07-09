@@ -7,18 +7,16 @@
   font-family: "Poppins", sans-serif;
   list-style: none;
 }
-
-html, body, .page-container {
+.page-container {
   height: 100%;
   background-color: #0b0b0b;
 }
 
-/* Navbar container */
+
 .nav-container {
   width: 100%;
   background-color: #0f0f0f;
   padding: 20px 10%;
-
   z-index: 10;
 }
 
