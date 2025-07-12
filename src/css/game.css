@@ -5,6 +5,7 @@
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   position: relative;
+   min-height: 100vh;
 }
 
 .games-header {
@@ -24,15 +25,16 @@
 }
 
 
-.search-bar {
-  max-width: 350px;
+.game-search-bar {
+  max-width: 400px;
   width: 100%;
   padding: 12px 16px;
-  border-radius: 10px;
+  border-radius: 8px;
   background: #141414;
   color: white;
   border: 1px solid #2f2f2f;
   font-size: 1rem;
+  outline: none;
 }
 
 .games-grid {

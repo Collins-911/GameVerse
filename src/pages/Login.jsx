@@ -12,8 +12,8 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const dummyEmail = 'emelumbacollins@gmail.com';
-    const dummyPassword = '123456';
+    const dummyEmail = 'test@gmail.com';
+    const dummyPassword = 'test123';
 
     
     if (!emailInput || !passwordInput) {

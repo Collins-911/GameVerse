@@ -164,7 +164,7 @@ export default function Games() {
           <h1 className="games-title">Popular Games</h1>
           <input
             type="text"
-            className="search-bar"
+            className="game-search-bar"
             placeholder="Search games..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
