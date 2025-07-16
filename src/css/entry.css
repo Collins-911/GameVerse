@@ -1,0 +1,129 @@
+/* Reset & Font */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main container */
+.entry-container {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(-45deg, #0b0b0b, #0f4030, #001a10, #0b0b0b);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Background gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Exit animation when button is clicked */
+.exit {
+  animation: pageExit 0.6s ease forwards;
+}
+
+@keyframes pageExit {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Title wrapper */
+.entry-title {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: bold;
+}
+
+/* "Game" letters (green) */
+.letter.game {
+  color: #00ff6a;
+}
+
+/* "Verse" letters (white) */
+.letter.verse {
+  color: white;
+}
+
+/* Each letter animates in */
+.letter {
+  opacity: 0;
+  display: inline-block;
+  animation: flyLetter 1s ease forwards;
+  text-shadow: none;
+}
+
+/* Each letter animates from a different direction */
+.letter-0 { animation-delay: 0s; transform: translateX(-200%); }
+.letter-1 { animation-delay: 0.1s; transform: translateY(-150%); }
+.letter-2 { animation-delay: 0.2s; transform: translateX(200%); }
+.letter-3 { animation-delay: 0.3s; transform: translateY(150%); }
+.letter-4 { animation-delay: 0.4s; transform: translateX(-100%); }
+.letter-5 { animation-delay: 0.5s; transform: translateY(-100%); }
+.letter-6 { animation-delay: 0.6s; transform: translateX(100%); }
+.letter-7 { animation-delay: 0.7s; transform: translateY(100%); }
+.letter-8 { animation-delay: 0.8s; transform: scale(0); }
+
+@keyframes flyLetter {
+  to {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Enter button */
+.entry-button {
+  margin-top: 30px;
+  background-color: #00ff6a;
+  color: black;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 600;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: none;
+  opacity: 0;
+}
+
+/* Hover effect for button */
+.entry-button:hover {
+  background-color: white;
+  color: #0b0b0b;
+}
+
+/* Button fade-in after animation */
+.fade-in {
+  animation: fadeInButton 0.8s ease forwards;
+}
+
+@keyframes fadeInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

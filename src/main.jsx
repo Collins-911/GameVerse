@@ -2,12 +2,17 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// Pages
-import Home from './pages/Home.jsx';
-import Game from './pages/Game.jsx';
+// Entry Page
+import Entry from './pages/Entry.jsx';
+
+// Auth Pages
 import Login from './pages/Login.jsx';
 import Signup from './pages/SignUp.jsx';
-import Music from './pages/Music.jsx'
+
+// Main Pages
+import Home from './pages/Home.jsx';
+import Game from './pages/Game.jsx';
+import Music from './pages/Music.jsx';
 
 // Game Preview Pages
 import GTAV from './pages/gamesPreveiw/GTAV.jsx';
@@ -34,7 +39,7 @@ import SnakeGame from './pages/gamesPreveiw/SnakeGame.jsx';
 import Typing from './pages/gamesPreveiw/Typing.jsx';
 import TicTacToeGame from './pages/gamesPreveiw/TicTacToeGame.jsx';
 
-// Games Made Pages
+// User Made Games
 import Snake from './pages/gamesMade/Snake.jsx';
 import TicTacToe from './pages/gamesMade/TicTacToe.jsx';
 import TypingGame from './pages/gamesMade/TypingGame.jsx';
@@ -43,8 +48,11 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
+        {/* Entry Page as Landing Page */}
+        <Route path="/" element={<Entry />} />
+
         {/* Auth Pages */}
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
 
         {/* Main Pages */}
@@ -52,7 +60,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/game" element={<Game />} />
         <Route path="/music" element={<Music />} />
 
-        {/* Game Previews (now under /game/) */}
+        {/* Game Previews */}
         <Route path="/game/gtav" element={<GTAV />} />
         <Route path="/game/fortnite" element={<Fortnite />} />
         <Route path="/game/minecraft" element={<Minecraft />} />
