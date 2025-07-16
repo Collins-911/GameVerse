@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { FaVideo, FaUsers, FaPlay, FaStop, FaArrowLeft } from "react-icons/fa";
 import "../../src/css/livestream.css";
 import Navbar from "../components/Navbar";
 
@@ -77,13 +78,16 @@ export default function LiveStream() {
       </div>
 
       <div className="livestream-page">
-        <h1 className="live-title">🎥 Live Streaming Platform</h1>
+        <h1 className="live-title">
+          <FaVideo style={{ marginRight: "10px" }} /> Live Streaming Platform
+        </h1>
 
         {selectedStream ? (
           <div className="live-viewer">
             <div className="stream-controls">
               <button onClick={goBackToStreamList} className="back-btn">
-                ← Back to all streams
+                <FaArrowLeft style={{ marginRight: "8px" }} />
+                Back to all streams
               </button>
             </div>
             <div className="live-player">
@@ -97,7 +101,10 @@ export default function LiveStream() {
               <div className="stream-meta">
                 <h2>{selectedStream.name}'s Stream</h2>
                 <p>Playing: {selectedStream.game}</p>
-                <p className="viewer-count">👥 {selectedStream.viewers} viewers</p>
+                <p className="viewer-count">
+                  <FaUsers style={{ marginRight: "6px" }} />
+                  {selectedStream.viewers} viewers
+                </p>
               </div>
             </div>
           </div>
@@ -112,9 +119,11 @@ export default function LiveStream() {
                   <div className="stream-details">
                     <h3>{streamTitle || "Untitled Stream"}</h3>
                     <p>Game: {streamGame || "None selected"}</p>
-                    <p className="viewer-count">👥 0 viewers (live)</p>
+                    <p className="viewer-count">
+                      <FaUsers style={{ marginRight: "6px" }} /> 0 viewers (live)
+                    </p>
                     <button onClick={stopStreaming} className="stop-btn">
-                      ⏹ End Stream
+                      <FaStop style={{ marginRight: "6px" }} /> End Stream
                     </button>
                   </div>
                 </div>
@@ -134,7 +143,7 @@ export default function LiveStream() {
                       onChange={(e) => setStreamGame(e.target.value)}
                     />
                     <button onClick={startStreaming} className="start-btn">
-                      🔴 Go Live
+                      <FaPlay style={{ marginRight: "6px" }} /> Go Live
                     </button>
                   </div>
                   <div className="setup-tips">
@@ -158,12 +167,12 @@ export default function LiveStream() {
                   <div className="streamer-info">
                     <h3>{streamer.name}</h3>
                     <p>{streamer.game}</p>
-                    <span>👥 {streamer.viewers}</span>
+                    <span><FaUsers style={{ marginRight: "5px" }} /> {streamer.viewers}</span>
                     <button 
                       className="watch-btn"
                       onClick={() => watchStream(streamer)}
                     >
-                      ▶️ Watch
+                      <FaPlay style={{ marginRight: "6px" }} /> Watch
                     </button>
                   </div>
                 </div>

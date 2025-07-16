@@ -1,22 +1,25 @@
-// MusicPlayer.jsx
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import '../../src/css/music.css';
 
-import {
-  FaPlay,
-  FaPause,
-  FaStepForward,
-  FaStepBackward,
-  FaVolumeUp,
-  FaRandom,
-} from 'react-icons/fa';
-
-export default function MusicPlayer() {
-  const navigate = useNavigate();
+export default function Music() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [currentSongIndex] = useState(0); // no set function, static only
+  const [currentSong, setCurrentSong] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
+
+  const gameColors = {
+    Minecraft: '#62b957',
+    Cyberpunk: '#ff0055',
+    COD: '#ff6d00',
+    Fortnite: '#ff66c4',
+    Zelda: '#5dadec',
+    'League of Legends': '#ff9900',
+    'Genshin Impact': '#ee5a8a',
+    'The Witcher': '#c3954e',
+    'Among Us': '#ba3e3e',
+    'Valorant': '#ff4655'
+  };
 
   const songList = [
     {
@@ -24,40 +27,96 @@ export default function MusicPlayer() {
       artist: "Steve",
       album: "Minecraft Mayhem",
       duration: "2:36",
-      cover: "https://i.pinimg.com/736x/f4/0f/7f/f40f7f05fc20eec499f9fb8eb2814f62.jpg",
-      audio: '',
       game: "Minecraft",
-      onClick: () => navigate('/game/minecraft')
+      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
     },
-     {
-      title: "Chicken Lava",
-      artist: "Steve",
-      album: "Minecraft Mayhem",
-      duration: "2:36",
-      cover: "https://i.pinimg.com/736x/f4/0f/7f/f40f7f05fc20eec499f9fb8eb2814f62.jpg",
-      audio: '',
+    {
+      title: "Diamond Hustle",
+      artist: "Alex",
+      album: "Block Beats",
+      duration: "3:02",
       game: "Minecraft",
-      onClick: () => navigate('/game/minecraft')
+      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
     },
-     {
-      title: "Chicken Lava",
-      artist: "Steve",
-      album: "Minecraft Mayhem",
-      duration: "2:36",
-      cover: "https://i.pinimg.com/736x/f4/0f/7f/f40f7f05fc20eec499f9fb8eb2814f62.jpg",
-      audio: '',
-      game: "Minecraft",
-      onClick: () => navigate('/game/minecraft')
+    {
+      title: "Cyber Pulse",
+      artist: "Glitchbyte",
+      album: "Night Synth",
+      duration: "4:11",
+      game: "Cyberpunk",
+      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
     },
-     {
-      title: "Chicken Lava",
-      artist: "Steve",
-      album: "Minecraft Mayhem",
-      duration: "2:36",
-      cover: "https://i.pinimg.com/736x/f4/0f/7f/f40f7f05fc20eec499f9fb8eb2814f62.jpg",
-      audio: '',
+    {
+      title: "Warfare Echo",
+      artist: "Sniper X",
+      album: "COD Beats",
+      duration: "2:45",
+      game: "COD",
+      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+    },
+    {
+      title: "Battle Royale Anthem",
+      artist: "Jonesy",
+      album: "Fortnite Official",
+      duration: "3:18",
+      game: "Fortnite",
+      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
+    },
+    {
+      title: "Hyrule Dreams",
+      artist: "Zelda Orchestra",
+      album: "Breath of the Wild",
+      duration: "5:22",
+      game: "Zelda",
+      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
+    },
+    {
+      title: "Summoner's Rift",
+      artist: "League Sound Team",
+      album: "LoL Champions",
+      duration: "3:45",
+      game: "League of Legends",
+      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
+    },
+    {
+      title: "Teyvat Overture",
+      artist: "Hoyomix",
+      album: "Genshin Impact OST",
+      duration: "4:30",
+      game: "Genshin Impact",
+      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+    },
+    {
+      title: "Toss a Coin",
+      artist: "Percival",
+      album: "The Witcher 3",
+      duration: "2:58",
+      game: "The Witcher",
+      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3"
+    },
+    {
+      title: "Suspicious Activity",
+      artist: "Crewmate Collective",
+      album: "Among Us OST",
+      duration: "1:45",
+      game: "Among Us",
+      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3"
+    },
+    {
+      title: "Spike Rush",
+      artist: "Valorant Sound Team",
+      album: "Valorant Official",
+      duration: "3:12",
+      game: "Valorant",
+      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3"
+    },
+    {
+      title: "Nether Steps",
+      artist: "Steve & Alex",
+      album: "Minecraft Nether",
+      duration: "3:40",
       game: "Minecraft",
-      onClick: () => navigate('/game/minecraft')
+      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3"
     }
   ];
 
@@ -67,14 +126,32 @@ export default function MusicPlayer() {
     song.game.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const currentSong = songList[currentSongIndex];
+  const handleSongClick = (song) => {
+    if (currentSong && currentSong.title === song.title) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    } else {
+      setCurrentSong(song);
+      setIsPlaying(true);
+      setTimeout(() => {
+        audioRef.current.play();
+      }, 0);
+    }
+  };
+
+  const handleAudioEnd = () => {
+    setIsPlaying(false);
+  };
 
   return (
     <>
       <div className="nav-container">
         <Navbar />
       </div>
-
       <div className="music-page">
         <div className="music-header">
           <h1 className="music-title">Game Soundtracks</h1>
@@ -83,68 +160,74 @@ export default function MusicPlayer() {
             className="search-bar"
             placeholder="Search songs..."
             value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
 
-        <div className="music-container">
-          <div className="song-list">
-            {filteredSongs.map((song, idx) => (
-              <div
-                key={idx}
-                className={`song-item ${currentSongIndex === idx ? 'active' : ''}`}
+        {currentSong && (
+          <div className="now-playing" style={{ backgroundColor: gameColors[currentSong.game] }}>
+            <div className="now-playing-info">
+              <div 
+                className="now-playing-disc"
+                style={{ backgroundColor: gameColors[currentSong.game] }}
               >
-                <img src={song.cover} alt={song.title} className="song-cover" />
-                <div className="song-info">
-                  <h3>{song.title}</h3>
-                  <p>{song.artist} • {song.album}</p>
-                  <p
-                    className="game-link"
-                    onClick={e => {
-                      e.stopPropagation();
-                      song.onClick();
-                    }}
-                  >
-                    From: {song.game}
-                  </p>
+                {isPlaying && <div className="disc-inner-spin"></div>}
+              </div>
+              <div>
+                <h4>{currentSong.title}</h4>
+                <p>{currentSong.artist}</p>
+              </div>
+            </div>
+            <div className="now-playing-controls">
+              <button onClick={() => {
+                if (isPlaying) {
+                  audioRef.current.pause();
+                } else {
+                  audioRef.current.play();
+                }
+                setIsPlaying(!isPlaying);
+              }}>
+                {isPlaying ? '⏸' : '▶'}
+              </button>
+            </div>
+            <audio
+              ref={audioRef}
+              src={currentSong.audio}
+              onEnded={handleAudioEnd}
+            />
+          </div>
+        )}
+
+        <div className="song-grid">
+          {filteredSongs.length > 0 ? (
+            filteredSongs.map((song, idx) => (
+              <div 
+                key={idx} 
+                className={`song-card ${currentSong?.title === song.title ? 'active' : ''}`}
+                onClick={() => handleSongClick(song)}
+              >
+                <div 
+                  className="song-disc"
+                  style={{ backgroundColor: gameColors[song.game] }}
+                >
+                  {currentSong?.title === song.title && isPlaying && (
+                    <div className="disc-inner-spin"></div>
+                  )}
                 </div>
-                <span className="song-duration">{song.duration}</span>
+                <div className="song-meta">
+                  <h4>{song.title}</h4>
+                  <p>{song.artist}</p>
+                  <p className="song-game" style={{ color: gameColors[song.game] }}>
+                    {song.game}
+                  </p>
+                  <p className="song-duration">{song.duration}</p>
+                </div>
               </div>
-            ))}
-          </div>
-
-          <div className="player-container">
-            <div className="now-playing">
-              <img src={currentSong.cover} alt="Now Playing" className="now-playing-cover" />
-              <div className="now-playing-info">
-                <h2>{currentSong.title}</h2>
-                <p>{currentSong.artist} • {currentSong.album}</p>
-                <p className="game-link" onClick={currentSong.onClick}>
-                  From: {currentSong.game}
-                </p>
-              </div>
-            </div>
-
-            <div className="player-controls">
-              <button className="shuffle-btn">
-                <FaRandom />
-              </button>
-              <button className="control-btn">
-                <FaStepBackward />
-              </button>
-              <button className="play-pause-btn">
-                <FaPlay />
-              </button>
-              <button className="control-btn">
-                <FaStepForward />
-              </button>
-              
-            </div>
-
-          </div>
+            ))
+          ) : (
+            <p className="no-songs">No songs match your search.</p>
+          )}
         </div>
-
-        <audio src={currentSong.audio} />
       </div>
     </>
   );

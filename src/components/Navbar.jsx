@@ -26,35 +26,51 @@ export default function Navbar() {
 
         <ul className="navbar-links">
           <li>
-            <NavLink to="/home" className="nav-link" activeClassName="active-link">
+            <NavLink
+              to="/home"
+              className={({ isActive }) => isActive ? 'nav-link active-link' : 'nav-link'}
+              end
+            >
               <FaHome className="nav-icon" />
               <span className="link-text">Home</span>
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/game" className="nav-link" activeClassName="active-link">
+            <NavLink
+              to="/game"
+              className={({ isActive }) => isActive ? 'nav-link active-link' : 'nav-link'}
+            >
               <FaGamepad className="nav-icon" />
               <span className="link-text">Games</span>
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/music" className="nav-link" activeClassName="active-link">
+            <NavLink
+              to="/music"
+              className={({ isActive }) => isActive ? 'nav-link active-link' : 'nav-link'}
+            >
               <FaMusic className="nav-icon" />
               <span className="link-text">Music</span>
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/livestream" className="nav-link" activeClassName="active-link">
+            <NavLink
+              to="/livestream"
+              className={({ isActive }) => isActive ? 'nav-link active-link' : 'nav-link'}
+            >
               <FaBroadcastTower className="nav-icon" />
               <span className="link-text">Livestream</span>
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/" className="nav-link logout" activeClassName="active-link">
+            <NavLink
+              to="/"
+              className={({ isActive }) => isActive ? 'nav-link logout active-link' : 'nav-link logout'}
+            >
               <FaSignOutAlt className="nav-icon" />
               <span className="link-text">Logout</span>
             </NavLink>
