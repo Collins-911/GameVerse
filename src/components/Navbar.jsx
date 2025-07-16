@@ -23,6 +23,7 @@ export default function Navbar() {
             <span className="logo-white">V</span>
           </span>
         </div>
+
         <ul className="navbar-links">
           <li>
             <NavLink to="/home" className="nav-link" activeClassName="active-link">
@@ -30,29 +31,28 @@ export default function Navbar() {
               <span className="link-text">Home</span>
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/game" className="nav-link" activeClassName="active-link">
               <FaGamepad className="nav-icon" />
               <span className="link-text">Games</span>
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/music" className="nav-link" activeClassName="active-link">
               <FaMusic className="nav-icon" />
               <span className="link-text">Music</span>
             </NavLink>
           </li>
+
           <li>
-            <a 
-              href="https://wizstreamer.netlify.app/dashboard" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="nav-link live"
-            >
+            <NavLink to="/livestream" className="nav-link" activeClassName="active-link">
               <FaBroadcastTower className="nav-icon" />
               <span className="link-text">Livestream</span>
-            </a>
+            </NavLink>
           </li>
+
           <li>
             <NavLink to="/" className="nav-link logout" activeClassName="active-link">
               <FaSignOutAlt className="nav-icon" />

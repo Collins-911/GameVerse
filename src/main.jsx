@@ -13,6 +13,7 @@ import Signup from './pages/SignUp.jsx';
 import Home from './pages/Home.jsx';
 import Game from './pages/Game.jsx';
 import Music from './pages/Music.jsx';
+import LiveStream from './pages/LiveStream.jsx'; // ✅ NEW
 
 // Game Preview Pages
 import GTAV from './pages/gamesPreveiw/GTAV.jsx';
@@ -59,6 +60,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/home" element={<Home />} />
         <Route path="/game" element={<Game />} />
         <Route path="/music" element={<Music />} />
+        <Route path="/livestream" element={<LiveStream />} /> {/* ✅ NEW */}
 
         {/* Game Previews */}
         <Route path="/game/gtav" element={<GTAV />} />
