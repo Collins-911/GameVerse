@@ -7,39 +7,40 @@
   position: relative;
 }
 
-.gtav-header {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-}
-
-.gtav-back-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: #00ff6a;
-  color: black;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.gtav-back-btn:hover {
-  transform: scale(1.08);
-}
-
 .gtav-hero {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  margin-top: 5rem;
+  margin-top: 1rem;
   align-items: center;
+  position: relative;
   background-color: #1a1a1a;
   padding: 2rem;
   border-radius: 10px;
+}
+
+.gtav-back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #00ff6a;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+
+.gtav-back-btn:hover {
+  transform: scale(1.1);
 }
 
 .gtav-img-container {
@@ -200,7 +201,7 @@
     margin-top: 10px;
   }
 
-  .gtav-header {
+  .gtav-back-btn {
     top: 10px;
     left: 10px;
   }

@@ -27,6 +27,8 @@ export default function GtaV() {
           />
         </div>
         <div className="gtav-info">
+         
+        
           <h1>Grand Theft Auto V</h1>
           <p className="genre">Action-Adventure | Rockstar Games</p>
           <p className="release">Release Date: September 17, 2013</p>
