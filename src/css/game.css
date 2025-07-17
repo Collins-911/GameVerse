@@ -3,7 +3,6 @@
   background: #0b0b0b;
   color: #e0e0e0;
   min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
   position: relative;
    min-height: 100vh;
 }
@@ -35,6 +34,7 @@
   border: 1px solid #2f2f2f;
   font-size: 1rem;
   outline: none;
+
 }
 
 .games-grid {
