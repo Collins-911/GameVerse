@@ -28,7 +28,9 @@ export default function Navbar() {
           <li>
             <NavLink
               to="/home"
-              className={({ isActive }) => isActive ? 'nav-link active-link' : 'nav-link'}
+              className={({ isActive }) =>
+                isActive ? 'nav-link active-link bounce' : 'nav-link'
+              }
               end
             >
               <FaHome className="nav-icon" />
@@ -39,7 +41,9 @@ export default function Navbar() {
           <li>
             <NavLink
               to="/game"
-              className={({ isActive }) => isActive ? 'nav-link active-link' : 'nav-link'}
+              className={({ isActive }) =>
+                isActive ? 'nav-link active-link bounce' : 'nav-link'
+              }
             >
               <FaGamepad className="nav-icon" />
               <span className="link-text">Games</span>
@@ -49,7 +53,9 @@ export default function Navbar() {
           <li>
             <NavLink
               to="/music"
-              className={({ isActive }) => isActive ? 'nav-link active-link' : 'nav-link'}
+              className={({ isActive }) =>
+                isActive ? 'nav-link active-link bounce' : 'nav-link'
+              }
             >
               <FaMusic className="nav-icon" />
               <span className="link-text">Music</span>
@@ -59,7 +65,9 @@ export default function Navbar() {
           <li>
             <NavLink
               to="/livestream"
-              className={({ isActive }) => isActive ? 'nav-link active-link' : 'nav-link'}
+              className={({ isActive }) =>
+                isActive ? 'nav-link active-link bounce' : 'nav-link'
+              }
             >
               <FaBroadcastTower className="nav-icon" />
               <span className="link-text">Livestream</span>
@@ -69,7 +77,9 @@ export default function Navbar() {
           <li>
             <NavLink
               to="/"
-              className={({ isActive }) => isActive ? 'nav-link logout active-link' : 'nav-link logout'}
+              className={({ isActive }) =>
+                isActive ? 'nav-link logout active-link bounce' : 'nav-link logout'
+              }
             >
               <FaSignOutAlt className="nav-icon" />
               <span className="link-text">Logout</span>

@@ -6,7 +6,6 @@
   background-color: #0f0f0f;
   z-index: 999;
   border-bottom: 1px solid #1e1e1e;
-
 }
 
 .navbar-container {
@@ -56,7 +55,6 @@
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
-
 .nav-icon {
   font-size: 20px;
   margin-right: 8px;
@@ -80,10 +78,14 @@
 }
 
 .active-link {
-  background-color: #e0e0e0;
-  color: black !important;
-  font-weight: bold;
- 
+  color: #00ff6a;
+  transition: 0.5s;
+}
+
+.active-link .nav-icon,
+.active-link .link-text {
+  color: #00ff6a;
+  
 }
 
 @media (max-width: 768px) {
