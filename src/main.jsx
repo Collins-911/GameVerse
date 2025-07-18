@@ -39,11 +39,13 @@ import TheSims4 from './pages/gamesPreveiw/TheSims4.jsx';
 import SnakeGame from './pages/gamesPreveiw/SnakeGame.jsx';
 import Typing from './pages/gamesPreveiw/Typing.jsx';
 import TicTacToeGame from './pages/gamesPreveiw/TicTacToeGame.jsx';
+import QuizGame from './pages/gamesPreveiw/QuizGame.jsx';
 
 // User Made Games
 import Snake from './pages/gamesMade/Snake.jsx';
 import TicTacToe from './pages/gamesMade/TicTacToe.jsx';
 import TypingGame from './pages/gamesMade/TypingGame.jsx';
+import Quiz from './pages/gamesMade/Quiz.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -86,11 +88,14 @@ createRoot(document.getElementById('root')).render(
         <Route path="/game/snakegame" element={<SnakeGame />} />
         <Route path="/game/typing" element={<Typing />} />
         <Route path="/game/playtictactoe" element={<TicTacToeGame />} />
+        <Route path="/game/playquiz" element={<QuizGame />} />
+
 
         {/* User Made Games */}
         <Route path="/playsnake" element={<Snake />} />
         <Route path="/tictactoe" element={<TicTacToe />} />
         <Route path="/typinggame" element={<TypingGame />} />
+        <Route path="/playquiz" element={<Quiz />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

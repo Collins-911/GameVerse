@@ -147,6 +147,12 @@ export default function Games() {
       img: 'https://i.pinimg.com/736x/f6/6d/b8/f66db836e7397bff2c8b462b2e775b33.jpg',
       onClick: () => navigate('/game/typing'),
     },
+    {
+      name: 'Quiz Challenge',
+      genre: 'Trivia',
+      img: 'https://i.pinimg.com/736x/48/ff/34/48ff343800da6dd5588d4aae7989c607.jpg',
+      onClick: () => navigate('/game/playquiz'),
+    },
   ];
 
   const filteredGames = gameList.filter((game) =>

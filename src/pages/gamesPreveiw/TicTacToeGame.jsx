@@ -7,9 +7,9 @@ export default function TicTacToeGame() {
 
   return (
     <div className="sg-page">
-      <button className="sg-back-btn" onClick={() => navigate('/game')}>
-        <FaArrowLeft />
-      </button>
+     <button className="gtav-back-btn" onClick={() => navigate('/game')}>
+              <FaArrowLeft />
+            </button>
 
       <div className="sg-hero">
         <div className="sg-info">
