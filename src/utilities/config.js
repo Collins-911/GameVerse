@@ -1,2 +1,2 @@
 // config.js
-export const BASE_URL = "https://api.example.com";
+export const BASE_URL = "https://collins-jlf2.onrender.com";

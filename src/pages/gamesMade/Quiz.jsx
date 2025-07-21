@@ -11,30 +11,27 @@ export default function QuizGame() {
   const [selected, setSelected] = useState(null);
   const [showScore, setShowScore] = useState(false);
 
+  const fetchQuestions = async () => {
+    try {
+      const response = await fetch('https://opentdb.com/api.php?amount=10&type=multiple');
+      const data = await response.json();
+      const formatted = data.results.map((q) => {
+        const options = [...q.incorrect_answers];
+        const randomIndex = Math.floor(Math.random() * 4);
+        options.splice(randomIndex, 0, q.correct_answer);
+        return {
+          question: q.question,
+          options,
+          answer: q.correct_answer,
+        };
+      });
+      setQuizData(formatted);
+    } catch (error) {
+      console.error('Failed to fetch quiz data:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchQuestions = async () => {
-      try {
-        const response = await fetch('https://opentdb.com/api.php?amount=10&type=multiple');
-        const data = await response.json();
-
-        const formatted = data.results.map((q) => {
-          const options = [...q.incorrect_answers];
-          const randomIndex = Math.floor(Math.random() * 4);
-          options.splice(randomIndex, 0, q.correct_answer);
-
-          return {
-            question: q.question,
-            options,
-            answer: q.correct_answer,
-          };
-        });
-
-        setQuizData(formatted);
-      } catch (error) {
-        console.error('Failed to fetch quiz data:', error);
-      }
-    };
-
     fetchQuestions();
   }, []);
 
@@ -60,11 +57,19 @@ export default function QuizGame() {
     setScore(0);
     setSelected(null);
     setShowScore(false);
-    window.location.reload();
+    fetchQuestions();
   };
 
   if (quizData.length === 0) {
-    return <div className="sg-page"><div className="sg-hero"><div className="sg-info"><h2>Loading Questions...</h2></div></div></div>;
+    return (
+      <div className="sg-page">
+        <div className="sg-hero">
+          <div className="sg-info">
+            <h2>Loading Questions...</h2>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
