@@ -45,11 +45,11 @@ export default function Signup() {
         <div className="row">
           <div className="input-group">
             <label>Name</label>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+            <input type="text" name="name" value={formData.name} placeholder='Enter your name' onChange={handleChange} required />
           </div>
           <div className="input-group">
             <label>Email</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+            <input type="email" name="email" value={formData.email} placeholder='Enter your email' onChange={handleChange} required />
           </div>
         </div>
         <div className="row">
@@ -61,6 +61,7 @@ export default function Signup() {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                placeholder="Enter password"
                 required
               />
               <span onClick={() => setShowPassword(!showPassword)}>
@@ -76,6 +77,7 @@ export default function Signup() {
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
+                placeholder="Confirm password"
                 required
               />
               <span onClick={() => setShowConfirm(!showConfirm)}>
