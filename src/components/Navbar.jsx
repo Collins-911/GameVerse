@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import {
   FaHome,
@@ -11,8 +11,6 @@ import {
 import '../css/navbar.css';
 
 export default function Navbar() {
-  const navigate = useNavigate();
-
   const handleLogout = (e) => {
     e.preventDefault();
 
@@ -30,7 +28,7 @@ export default function Navbar() {
     }).then((result) => {
       if (result.isConfirmed) {
         localStorage.removeItem('authToken');
-        navigate('/');
+
         Swal.fire({
           title: 'Logged Out',
           text: 'You have been logged out successfully.',
@@ -40,6 +38,9 @@ export default function Navbar() {
           background: 'black',
           color: '#00ff6a',
           width: '350px',
+        }).then(() => {
+          // Full page reload to re-trigger animations on entry page
+          window.location.href = '/';
         });
       }
     });
@@ -110,11 +111,7 @@ export default function Navbar() {
           </li>
 
           <li>
-            <a
-              href="/"
-              onClick={handleLogout}
-              className="nav-link logout"
-            >
+            <a href="/" onClick={handleLogout} className="nav-link logout">
               <FaSignOutAlt className="nav-icon" />
               <span className="link-text">Logout</span>
             </a>
