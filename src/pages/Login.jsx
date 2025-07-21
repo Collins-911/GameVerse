@@ -37,7 +37,6 @@ export default function Login() {
       const data = await res.json();
 
       if (res.ok && data.token && data.user) {
-        // Save token and user info
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
 
@@ -51,7 +50,9 @@ export default function Login() {
           color: '#ffffff',
         });
 
-        navigate('/home');
+        setTimeout(() => {
+          navigate('/home');
+        }, 1500);
       } else {
         Swal.fire({
           icon: 'error',

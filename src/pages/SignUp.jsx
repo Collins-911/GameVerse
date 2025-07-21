@@ -30,6 +30,8 @@ export default function Signup() {
         title: 'Incomplete Form',
         text: 'Please fill in all fields',
         confirmButtonColor: '#00ff6a',
+        background: '#0b0b0b',
+        color: '#ffffff',
       });
       return;
     }
@@ -40,6 +42,8 @@ export default function Signup() {
         title: 'Passwords Do Not Match',
         text: 'Please ensure both passwords are the same',
         confirmButtonColor: '#ff4e4e',
+        background: '#0b0b0b',
+        color: '#ffffff',
       });
       return;
     }
@@ -53,16 +57,21 @@ export default function Signup() {
 
       const data = await res.json();
 
-      if (res.ok) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Registration Successful',
-          text: 'You can now log in',
-          confirmButtonColor: '#00ff6a',
-          background: '#0b0b0b',
-          color: '#ffffff',
-        }).then(() => navigate('/login'));
-      } else {
+     if (res.ok) {
+  localStorage.setItem('token', data.token);
+  Swal.fire({
+    icon: 'success',
+    title: 'Registration Successful',
+    text: 'Welcome! You are now signed in.',
+    confirmButtonColor: '#00ff6a',
+    background: '#0b0b0b',
+    color: '#ffffff',
+    timer: 2000,
+    showConfirmButton: false,
+  });
+  navigate('/home');
+}
+ else {
         Swal.fire({
           icon: 'error',
           title: 'Registration Failed',
@@ -72,7 +81,7 @@ export default function Signup() {
           color: '#ffffff',
         });
       }
-    } catch (error) {
+    } catch {
       Swal.fire({
         icon: 'error',
         title: 'Server Error',

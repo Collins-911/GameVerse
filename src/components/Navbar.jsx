@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
   FaHome,
   FaGamepad,
@@ -11,8 +11,6 @@ import Swal from 'sweetalert2';
 import '../css/navbar.css';
 
 export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
-  const navigate = useNavigate();
-
   const handleLogout = (e) => {
     e.preventDefault();
     Swal.fire({
@@ -26,7 +24,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
       localStorage.removeItem('user');
       localStorage.removeItem('token');
       setIsLoggedIn(false);
-      navigate('/login');
+      window.location.href = '/';
     });
   };
 
@@ -64,18 +62,8 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
           {renderNavItem('/home', <FaHome className="nav-icon" />, 'Home')}
           {renderNavItem('/game', <FaGamepad className="nav-icon" />, 'Games')}
           {renderNavItem('/music', <FaMusic className="nav-icon" />, 'Music')}
-          {renderNavItem(
-            '/livestream',
-            <FaBroadcastTower className="nav-icon" />,
-            'Livestream'
-          )}
-          {renderNavItem(
-            '/',
-            <FaSignOutAlt className="nav-icon" />,
-            'Logout',
-            'logout',
-            handleLogout
-          )}
+          {renderNavItem('/livestream', <FaBroadcastTower className="nav-icon" />, 'Livestream')}
+          {renderNavItem('/', <FaSignOutAlt className="nav-icon" />, 'Logout', 'logout', handleLogout)}
         </ul>
       </div>
     </nav>
