@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import {
   FaHome,
   FaGamepad,
@@ -10,6 +11,40 @@ import {
 import '../css/navbar.css';
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will be logged out of GameVerse.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#00ff6a',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, logout',
+      background: 'black',
+      color: 'white',
+      width: '350px',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem('authToken');
+        navigate('/');
+        Swal.fire({
+          title: 'Logged Out',
+          text: 'You have been logged out successfully.',
+          icon: 'success',
+          timer: 1500,
+          showConfirmButton: false,
+          background: 'black',
+          color: '#00ff6a',
+          width: '350px',
+        });
+      }
+    });
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -75,15 +110,14 @@ export default function Navbar() {
           </li>
 
           <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive ? 'nav-link logout active-link bounce' : 'nav-link logout'
-              }
+            <a
+              href="/"
+              onClick={handleLogout}
+              className="nav-link logout"
             >
               <FaSignOutAlt className="nav-icon" />
               <span className="link-text">Logout</span>
-            </NavLink>
+            </a>
           </li>
         </ul>
       </div>

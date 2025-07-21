@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
-import '../../src/css/login.css';
+import axios from 'axios';
+import '../../src/css/login.css'; 
 
 export default function Login() {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  // Simple email regex for validation
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    const dummyEmail = 'test@gmail.com';
-    const dummyPassword = 'test123';
-
-    
+    // Check for empty fields
     if (!emailInput || !passwordInput) {
       Swal.fire({
         icon: 'warning',
@@ -28,24 +31,61 @@ export default function Login() {
       return;
     }
 
-    if (emailInput === dummyEmail && passwordInput === dummyPassword) {
+    // Validate email format
+    if (!isValidEmail(emailInput)) {
       Swal.fire({
-        icon: 'success',
-        title: 'Login Successful',
-        text: 'Welcome back!',
-        timer: 1500,
-        showConfirmButton: false,
+        icon: 'error',
+        title: 'Invalid Email',
+        text: 'Please enter a valid email address.',
         background: 'black',
-        color: '#00ff6a',
+        color: 'white',
         width: '350px',
-      }).then(() => {
-        navigate('/home');
       });
-    } else {
+      return;
+    }
+
+    // Check password length
+    if (passwordInput.length < 6) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Weak Password',
+        text: 'Password must be at least 6 characters long.',
+        background: 'black',
+        color: 'white',
+        width: '350px',
+      });
+      return;
+    }
+
+    try {
+      const response = await axios.post('https://your-api.com/api/login', {
+        email: emailInput,
+        password: passwordInput,
+      });
+
+      if (response.data.success) {
+        localStorage.setItem('authToken', response.data.token); 
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Successful',
+          text: 'Welcome back!',
+          timer: 1500,
+          showConfirmButton: false,
+          background: 'black',
+          color: '#00ff6a',
+          width: '350px',
+        }).then(() => {
+          navigate('/home');
+        });
+      } else {
+        throw new Error('Login failed');
+      }
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Login Failed',
-        text: 'Invalid email or password',
+        text: error.response?.data?.message || 'Invalid email or password.',
         background: 'black',
         width: '350px',
         color: 'white',

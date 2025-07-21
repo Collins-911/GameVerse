@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
 import '../../src/css/signup.css';
 
 export default function Signup() {
@@ -11,10 +11,21 @@ export default function Signup() {
   const [confirm, setConfirm] = useState('');
   const navigate = useNavigate();
 
-  const handleSignup = (e) => {
+  // Email format checker
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleSignup = async (e) => {
     e.preventDefault();
 
-    if (!name || !email || !password || !confirm) {
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedPassword = password.trim();
+    const trimmedConfirm = confirm.trim();
+
+    if (!trimmedName || !trimmedEmail || !trimmedPassword || !trimmedConfirm) {
       Swal.fire({
         icon: 'warning',
         title: 'Incomplete Form',
@@ -26,7 +37,31 @@ export default function Signup() {
       return;
     }
 
-    if (password !== confirm) {
+    if (!isValidEmail(trimmedEmail)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Email',
+        text: 'Please enter a valid email address.',
+        background: 'black',
+        color: '#fff',
+        width: '400px',
+      });
+      return;
+    }
+
+    if (trimmedPassword.length < 6) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Weak Password',
+        text: 'Password must be at least 6 characters long.',
+        background: 'black',
+        color: '#fff',
+        width: '400px',
+      });
+      return;
+    }
+
+    if (trimmedPassword !== trimmedConfirm) {
       Swal.fire({
         icon: 'error',
         title: 'Password Mismatch',
@@ -38,19 +73,39 @@ export default function Signup() {
       return;
     }
 
-  
-    Swal.fire({
-      icon: 'success',
-      title: 'Signup Successful',
-      text: 'Welcome to GameVerse!',
-      timer: 1500,
-      showConfirmButton: false,
-      background: 'black',
-      color: '#fff',
-      width: '400px',
-    }).then(() => {
-      navigate('/home');
-    });
+    try {
+      const response = await axios.post('https://your-api.com/api/signup', {
+        name: trimmedName,
+        email: trimmedEmail,
+        password: trimmedPassword,
+      });
+
+      if (response.data.success) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Signup Successful',
+          text: 'Welcome to GameVerse!',
+          timer: 1500,
+          showConfirmButton: false,
+          background: 'black',
+          color: '#fff',
+          width: '400px',
+        }).then(() => {
+          navigate('/home');
+        });
+      } else {
+        throw new Error('Signup failed');
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Signup Error',
+        text: error.response?.data?.message || 'Something went wrong. Try again.',
+        background: 'black',
+        color: '#fff',
+        width: '400px',
+      });
+    }
   };
 
   return (
@@ -60,7 +115,7 @@ export default function Signup() {
 
         <div className="input-row">
           <div className="input-group">
-            <label htmlFor="name">Display Name:</label>
+            <label htmlFor="name">Name:</label>
             <input
               type="text"
               id="name"
