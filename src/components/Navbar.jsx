@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import { useNavigate, NavLink } from 'react-router-dom';
 import {
   FaHome,
   FaGamepad,
@@ -8,43 +7,44 @@ import {
   FaBroadcastTower,
   FaSignOutAlt,
 } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 import '../css/navbar.css';
 
-export default function Navbar() {
+export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
+  const navigate = useNavigate();
+
   const handleLogout = (e) => {
     e.preventDefault();
-
     Swal.fire({
-      title: 'Are you sure?',
-      text: 'You will be logged out of GameVerse.',
-      icon: 'warning',
-      showCancelButton: true,
+      icon: 'success',
+      title: 'Logged Out',
+      text: 'You have been successfully logged out.',
       confirmButtonColor: '#00ff6a',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, logout',
-      background: 'black',
+      background: '#1e1e1e',
       color: 'white',
-      width: '350px',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        localStorage.removeItem('authToken');
-
-        Swal.fire({
-          title: 'Logged Out',
-          text: 'You have been logged out successfully.',
-          icon: 'success',
-          timer: 1500,
-          showConfirmButton: false,
-          background: 'black',
-          color: '#00ff6a',
-          width: '350px',
-        }).then(() => {
-          // Full page reload to re-trigger animations on entry page
-          window.location.href = '/';
-        });
-      }
+    }).then(() => {
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      setIsLoggedIn(false);
+      navigate('/login');
     });
   };
+
+  const renderNavItem = (to, icon, text, extraClass = '', onClick = null) => (
+    <li onClick={onClick}>
+      <NavLink
+        to={to}
+        className={({ isActive }) =>
+          isActive
+            ? `nav-link ${extraClass} active-link bounce`
+            : `nav-link ${extraClass}`
+        }
+      >
+        {icon}
+        <span className="link-text">{text}</span>
+      </NavLink>
+    </li>
+  );
 
   return (
     <nav className="navbar">
@@ -61,61 +61,21 @@ export default function Navbar() {
         </div>
 
         <ul className="navbar-links">
-          <li>
-            <NavLink
-              to="/home"
-              className={({ isActive }) =>
-                isActive ? 'nav-link active-link bounce' : 'nav-link'
-              }
-              end
-            >
-              <FaHome className="nav-icon" />
-              <span className="link-text">Home</span>
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/game"
-              className={({ isActive }) =>
-                isActive ? 'nav-link active-link bounce' : 'nav-link'
-              }
-            >
-              <FaGamepad className="nav-icon" />
-              <span className="link-text">Games</span>
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/music"
-              className={({ isActive }) =>
-                isActive ? 'nav-link active-link bounce' : 'nav-link'
-              }
-            >
-              <FaMusic className="nav-icon" />
-              <span className="link-text">Music</span>
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/livestream"
-              className={({ isActive }) =>
-                isActive ? 'nav-link active-link bounce' : 'nav-link'
-              }
-            >
-              <FaBroadcastTower className="nav-icon" />
-              <span className="link-text">Livestream</span>
-            </NavLink>
-          </li>
-
-          <li>
-            <a href="/" onClick={handleLogout} className="nav-link logout">
-              <FaSignOutAlt className="nav-icon" />
-              <span className="link-text">Logout</span>
-            </a>
-          </li>
+          {renderNavItem('/home', <FaHome className="nav-icon" />, 'Home')}
+          {renderNavItem('/game', <FaGamepad className="nav-icon" />, 'Games')}
+          {renderNavItem('/music', <FaMusic className="nav-icon" />, 'Music')}
+          {renderNavItem(
+            '/livestream',
+            <FaBroadcastTower className="nav-icon" />,
+            'Livestream'
+          )}
+          {renderNavItem(
+            '/',
+            <FaSignOutAlt className="nav-icon" />,
+            'Logout',
+            'logout',
+            handleLogout
+          )}
         </ul>
       </div>
     </nav>

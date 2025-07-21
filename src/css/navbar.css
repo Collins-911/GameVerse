@@ -85,7 +85,21 @@
 .active-link .nav-icon,
 .active-link .link-text {
   color: #00ff6a;
-  
+}
+
+.disabled-nav {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled-nav .nav-link {
+  color: grey;
+  pointer-events: none;
+}
+
+.disabled-nav .nav-icon,
+.disabled-nav .link-text {
+  color: grey;
 }
 
 @media (max-width: 768px) {

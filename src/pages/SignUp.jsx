@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import { BASE_URL} from '../utilities/config.js';
+import Swal from 'sweetalert2';
+import { BASE_URL } from '../utilities/config.js';
 import '../css/signup.css';
 
 export default function Signup() {
@@ -23,18 +24,63 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(`${BASE_URL}/auth/signup`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
+    if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Incomplete Form',
+        text: 'Please fill in all fields',
+        confirmButtonColor: '#00ff6a',
+      });
+      return;
+    }
 
-    const data = await res.json();
+    if (formData.password !== formData.confirmPassword) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Passwords Do Not Match',
+        text: 'Please ensure both passwords are the same',
+        confirmButtonColor: '#ff4e4e',
+      });
+      return;
+    }
 
-    if (res.ok) {
-      navigate('/login');
-    } else {
-      alert(data.message || 'Signup failed');
+    try {
+      const res = await fetch(`${BASE_URL}/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Registration Successful',
+          text: 'You can now log in',
+          confirmButtonColor: '#00ff6a',
+          background: '#0b0b0b',
+          color: '#ffffff',
+        }).then(() => navigate('/login'));
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Registration Failed',
+          text: data.message || 'An error occurred',
+          confirmButtonColor: '#ff4e4e',
+          background: '#0b0b0b',
+          color: '#ffffff',
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Server Error',
+        text: 'Please try again later',
+        confirmButtonColor: '#ff4e4e',
+        background: '#0b0b0b',
+        color: '#ffffff',
+      });
     }
   };
 
@@ -45,11 +91,25 @@ export default function Signup() {
         <div className="row">
           <div className="input-group">
             <label>Name</label>
-            <input type="text" name="name" value={formData.name} placeholder='Enter your name' onChange={handleChange} required />
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              placeholder="Enter your name"
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className="input-group">
             <label>Email</label>
-            <input type="email" name="email" value={formData.email} placeholder='Enter your email' onChange={handleChange} required />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              placeholder="Enter your email"
+              onChange={handleChange}
+              required
+            />
           </div>
         </div>
         <div className="row">
@@ -60,8 +120,8 @@ export default function Signup() {
                 type={showPassword ? 'text' : 'password'}
                 name="password"
                 value={formData.password}
-                onChange={handleChange}
                 placeholder="Enter password"
+                onChange={handleChange}
                 required
               />
               <span onClick={() => setShowPassword(!showPassword)}>
@@ -76,8 +136,8 @@ export default function Signup() {
                 type={showConfirm ? 'text' : 'password'}
                 name="confirmPassword"
                 value={formData.confirmPassword}
-                onChange={handleChange}
                 placeholder="Confirm password"
+                onChange={handleChange}
                 required
               />
               <span onClick={() => setShowConfirm(!showConfirm)}>

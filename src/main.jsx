@@ -1,6 +1,6 @@
-import { StrictMode } from 'react';
+import { StrictMode, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 // Entry Page
 import Entry from './pages/Entry.jsx';
@@ -13,7 +13,7 @@ import Signup from './pages/SignUp.jsx';
 import Home from './pages/Home.jsx';
 import Game from './pages/Game.jsx';
 import Music from './pages/Music.jsx';
-import LiveStream from './pages/LiveStream.jsx'; // ✅ NEW
+import LiveStream from './pages/LiveStream.jsx';
 
 // Game Preview Pages
 import GTAV from './pages/gamesPreveiw/GTAV.jsx';
@@ -40,64 +40,86 @@ import SnakeGame from './pages/gamesPreveiw/SnakeGame.jsx';
 import Typing from './pages/gamesPreveiw/Typing.jsx';
 import TicTacToeGame from './pages/gamesPreveiw/TicTacToeGame.jsx';
 import QuizGame from './pages/gamesPreveiw/QuizGame.jsx';
-import MortalKombat from './pages/gamesPreveiw/MortalKombat.jsx'; 
+import MortalKombat from './pages/gamesPreveiw/MortalKombat.jsx';
+
 // User Made Games
 import Snake from './pages/gamesMade/Snake.jsx';
 import TicTacToe from './pages/gamesMade/TicTacToe.jsx';
 import TypingGame from './pages/gamesMade/TypingGame.jsx';
 import Quiz from './pages/gamesMade/Quiz.jsx';
 
+function MainRoutes() {
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+
+  const ProtectedRoute = ({ children }) => {
+    return isLoggedIn ? children : <Navigate to="/login" replace />;
+  };
+
+  return (
+    <Routes>
+      {/* Public Pages */}
+      <Route path="/" element={<Entry />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+
+      {/* Protected Main Pages */}
+      <Route
+        path="/home"
+        element={<ProtectedRoute><Home /></ProtectedRoute>}
+      />
+      <Route
+        path="/game"
+        element={<ProtectedRoute><Game /></ProtectedRoute>}
+      />
+      <Route
+        path="/music"
+        element={<ProtectedRoute><Music /></ProtectedRoute>}
+      />
+      <Route
+        path="/livestream"
+        element={<ProtectedRoute><LiveStream /></ProtectedRoute>}
+      />
+
+      {/* Game Preview Pages */}
+      <Route path="/game/gtav" element={<GTAV />} />
+      <Route path="/game/fortnite" element={<Fortnite />} />
+      <Route path="/game/minecraft" element={<Minecraft />} />
+      <Route path="/game/cod" element={<COD />} />
+      <Route path="/game/valorant" element={<Valorant />} />
+      <Route path="/game/apexlegends" element={<ApexLegends />} />
+      <Route path="/game/leagueoflegends" element={<LeagueofLegends />} />
+      <Route path="/game/eldenring" element={<EldenRing />} />
+      <Route path="/game/amongus" element={<AmongUs />} />
+      <Route path="/game/cyberpunk2077" element={<Cyberpunk2077 />} />
+      <Route path="/game/fallguys" element={<FallGuys />} />
+      <Route path="/game/fifa25" element={<FIFA25 />} />
+      <Route path="/game/godofwar" element={<GOW />} />
+      <Route path="/game/hogwartslegacy" element={<HogwartsLegacy />} />
+      <Route path="/game/nba2k24" element={<NBA2K24 />} />
+      <Route path="/game/overwatch2" element={<Overwatch2 />} />
+      <Route path="/game/rocketleague" element={<RocketLeague />} />
+      <Route path="/game/stardewvalley" element={<StardewValley />} />
+      <Route path="/game/thelegendofzelda" element={<TheLegendOfZelda />} />
+      <Route path="/game/sims4" element={<TheSims4 />} />
+      <Route path="/game/snakegame" element={<SnakeGame />} />
+      <Route path="/game/typing" element={<Typing />} />
+      <Route path="/game/playtictactoe" element={<TicTacToeGame />} />
+      <Route path="/game/playquiz" element={<QuizGame />} />
+      <Route path="/game/mortalkombat" element={<MortalKombat />} />
+
+      {/* User Made Games */}
+      <Route path="/playsnake" element={<Snake />} />
+      <Route path="/tictactoe" element={<TicTacToe />} />
+      <Route path="/typinggame" element={<TypingGame />} />
+      <Route path="/playquiz" element={<Quiz />} />
+    </Routes>
+  );
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
-        {/* Entry Page as Landing Page */}
-        <Route path="/" element={<Entry />} />
-
-        {/* Auth Pages */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-
-        {/* Main Pages */}
-        <Route path="/home" element={<Home />} />
-        <Route path="/game" element={<Game />} />
-        <Route path="/music" element={<Music />} />
-        <Route path="/livestream" element={<LiveStream />} /> {/* ✅ NEW */}
-
-        {/* Game Previews */}
-        <Route path="/game/gtav" element={<GTAV />} />
-        <Route path="/game/fortnite" element={<Fortnite />} />
-        <Route path="/game/minecraft" element={<Minecraft />} />
-        <Route path="/game/cod" element={<COD />} />
-        <Route path="/game/valorant" element={<Valorant />} />
-        <Route path="/game/apexlegends" element={<ApexLegends />} />
-        <Route path="/game/leagueoflegends" element={<LeagueofLegends />} />
-        <Route path="/game/eldenring" element={<EldenRing />} />
-        <Route path="/game/amongus" element={<AmongUs />} />
-        <Route path="/game/cyberpunk2077" element={<Cyberpunk2077 />} />
-        <Route path="/game/fallguys" element={<FallGuys />} />
-        <Route path="/game/fifa25" element={<FIFA25 />} />
-        <Route path="/game/godofwar" element={<GOW />} />
-        <Route path="/game/hogwartslegacy" element={<HogwartsLegacy />} />
-        <Route path="/game/nba2k24" element={<NBA2K24 />} />
-        <Route path="/game/overwatch2" element={<Overwatch2 />} />
-        <Route path="/game/rocketleague" element={<RocketLeague />} />
-        <Route path="/game/stardewvalley" element={<StardewValley />} />
-        <Route path="/game/thelegendofzelda" element={<TheLegendOfZelda />} />
-        <Route path="/game/sims4" element={<TheSims4 />} />
-        <Route path="/game/snakegame" element={<SnakeGame />} />
-        <Route path="/game/typing" element={<Typing />} />
-        <Route path="/game/playtictactoe" element={<TicTacToeGame />} />
-        <Route path="/game/playquiz" element={<QuizGame />} />
-        <Route path="/game/mortalkombat" element={<MortalKombat />} />
-
-
-        {/* User Made Games */}
-        <Route path="/playsnake" element={<Snake />} />
-        <Route path="/tictactoe" element={<TicTacToe />} />
-        <Route path="/typinggame" element={<TypingGame />} />
-        <Route path="/playquiz" element={<Quiz />} />
-      </Routes>
+      <MainRoutes />
     </BrowserRouter>
   </StrictMode>
 );
