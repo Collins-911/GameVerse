@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import '../css/login.css'; // Make sure this matches your folder structure
+import '../css/login.css';
+import { BASE_URL } from '../utilities/config.js';
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,10 +19,22 @@ export default function Login() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log(formData);
+    try {
+      const res = await fetch(`${BASE_URL}/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      console.log(data);
+    } catch (err) {
+      console.error('Login failed:', err);
+    }
   };
 
   return (
