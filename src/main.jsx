@@ -40,7 +40,7 @@ import SnakeGame from './pages/gamesPreveiw/SnakeGame.jsx';
 import Typing from './pages/gamesPreveiw/Typing.jsx';
 import TicTacToeGame from './pages/gamesPreveiw/TicTacToeGame.jsx';
 import QuizGame from './pages/gamesPreveiw/QuizGame.jsx';
-
+import MortalKombat from './pages/gamesPreveiw/MortalKombat.jsx'; 
 // User Made Games
 import Snake from './pages/gamesMade/Snake.jsx';
 import TicTacToe from './pages/gamesMade/TicTacToe.jsx';
@@ -89,6 +89,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/game/typing" element={<Typing />} />
         <Route path="/game/playtictactoe" element={<TicTacToeGame />} />
         <Route path="/game/playquiz" element={<QuizGame />} />
+        <Route path="/game/mortalkombat" element={<MortalKombat />} />
 
 
         {/* User Made Games */}

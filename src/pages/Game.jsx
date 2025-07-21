@@ -129,6 +129,12 @@ export default function Games() {
       img: 'https://i.pinimg.com/736x/a5/91/f9/a591f986e9e7dd2e1c8004e642249edc.jpg',
       onClick: () => navigate('/game/rocketleague'),
     },
+      {
+      name: 'Mortal Kombat',
+      genre: 'Fighting',
+      img: 'https://i.pinimg.com/736x/db/19/79/db1979efe375808b1f207ed080a66d22.jpg',
+      onClick: () => navigate('/game/mortalkombat'),
+    },
     {
       name: 'Snake Game',
       genre: 'Arcade/Classic',
@@ -153,6 +159,7 @@ export default function Games() {
       img: 'https://i.pinimg.com/736x/48/ff/34/48ff343800da6dd5588d4aae7989c607.jpg',
       onClick: () => navigate('/game/playquiz'),
     },
+    
   ];
 
   const filteredGames = gameList.filter((game) =>
