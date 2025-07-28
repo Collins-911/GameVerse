@@ -1,6 +1,7 @@
 import { StrictMode, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import '../src/css/general.css' 
 
 // Entry Page
 import Entry from './pages/Entry.jsx';
