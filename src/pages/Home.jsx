@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/home.css';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 const trendingStreams = [
   {
     title: 'Legends Never Die',
-    desc: 'Technoblade’s greatest moments – relive the legend.',
+    desc: 'Technoblades greatest smoments – relive the legend.',
     streamer: 'Technoblade',
     viewers: '25.6K watching',
     image: 'https://i.pinimg.com/736x/98/25/d7/9825d70769de54b892883b6bd74c54ef.jpg',
@@ -76,21 +76,45 @@ const testimonials = [
   },
 ];
 
-
 export default function Home() {
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatTime = (date) => {
+    return date.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    }).toUpperCase();
+  };
+
+  const formatDate = (date) => {
+    return date.toLocaleDateString('en-US', {
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    });
+  };
+
   const testimonialSettings = {
-  dots: true,             // Shows navigation dots
-  infinite: true,         // Enables infinite looping
-  speed: 600,             // Transition speed in ms
-  slidesToShow: 1,        // Show one slide at a time
-  slidesToScroll: 1,      // Scroll one slide at a time
-  autoplay: true,         // Enable autoplay
-  autoplaySpeed: 2000,    // Delay between slides in autoplay
-  arrows: false,          // Hide navigation arrows
-  fade: true,
-
-}
-
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    arrows: false,
+    fade: true,
+  };
 
   return (
     <>
@@ -100,34 +124,44 @@ export default function Home() {
 
       <div className="page-container">
         <div className="home">
-      
           <section className="hero">
             <div className="hero-text">
               <h1>GameVerse</h1>
               <p>Your ultimate hub for game streams, reviews, and rankings.</p>
               <Link to="/game" className="cta-btn">Explore games</Link>
             </div>
-          </section>
 
-    
-          <section className="trending">
-            <h2>Live Now</h2>
-            <div className="trending-grid">
-              {trendingStreams.map((stream, index) => (
-                <div className="game-card" key={index}>
-                  <img src={stream.image} alt={stream.title} className="game-image" />
-                  <div className="game-info">
-                    <h3>{stream.title}</h3>
-                    <p>{stream.desc}</p>
-                    <p className="streamer">🎥 {stream.streamer} – {stream.viewers}</p>
-                    <button className="cta-btn" onClick={stream.action}>Watch Now</button>
-                  </div>
+            {/* <div className="game-time-display">
+              <div className="time-hud">
+                <div className="time-digits">{formatTime(currentTime)}</div>
+                <div className="date-display">{formatDate(currentTime)}</div>
+                <div className="hud-decoration">
+                  <span className="hud-corner hud-corner-tl"></span>
+                  <span className="hud-corner hud-corner-tr"></span>
+                  <span className="hud-corner hud-corner-bl"></span>
+                  <span className="hud-corner hud-corner-br"></span>
                 </div>
-              ))}
-            </div>
+              </div>
+            </div> */}
           </section>
 
-       
+            <section className="trending">
+              <h2>Live Now</h2>
+              <div className="trending-grid">
+                {trendingStreams.map((stream, index) => (
+                  <div className="game-card" key={index}>
+                    <img src={stream.image} alt={stream.title} className="game-image" />
+                    <div className="game-info">
+                      <h3>{stream.title}</h3>
+                      <p>{stream.desc}</p>
+                      <p className="streamer">🎥 {stream.streamer} – {stream.viewers}</p>
+                      <button className="cta-btn" onClick={stream.action}>Watch Now</button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
           <section className="testimonials">
             <h2>What Viewers Say</h2>
             <Slider {...testimonialSettings}>

@@ -138,7 +138,7 @@ export default function Signup() {
               </span>
             </div>
           </div>
-          <div className="input-group">
+          {/* <div className="input-group">
             <label>Confirm Password</label>
             <div className="password-field">
               <input
@@ -153,7 +153,7 @@ export default function Signup() {
                 {showConfirm ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
-          </div>
+          </div> */}
         </div>
         <button type="submit" className="signup-btn">Sign Up</button>
         <p className="login-link">

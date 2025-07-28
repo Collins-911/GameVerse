@@ -65,7 +65,7 @@ export default function QuizGame() {
       <div className="sg-page">
         <div className="sg-hero">
           <div className="sg-info">
-            <h2>Loading Questions...</h2>
+            <h2 style={{textAlign: "center", fontSize: "30px", marginTop: "150px"}}>Loading Questions...</h2>
           </div>
         </div>
       </div>
